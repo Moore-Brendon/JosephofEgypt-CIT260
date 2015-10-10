@@ -13,6 +13,7 @@ import byui.cit260.josephInEgypt.model.Pyramid;
 import byui.cit260.josephInEgypt.model.ResourceScene;
 import byui.cit260.josephInEgypt.model.Wagon;
 
+
 /**
  *
  * @author Brendon.Moore
@@ -80,7 +81,7 @@ public class JosephofEgypt {
         mSceneOne.setDescription("The Great Plains");
         mSceneOne.setHint("Here is a hint.");
         mSceneOne.setTravelTime(23);
-        mSceneOne.setSymbol("Wheat");
+        mSceneOne.setSymbol("Wheats");
         mSceneOne.setRequiredTime(12);
         
         String mSceneInfo = mSceneOne.toString();
