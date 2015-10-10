@@ -5,6 +5,7 @@
  */
 package josephofegypt;
 
+import byui.cit260.josephInEgypt.model.InventoryItem;
 import byui.cit260.josephInEgypt.model.Player;
 
 /**
@@ -24,6 +25,17 @@ public class JosephofEgypt {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        InventoryItem itemOne = new InventoryItem();
+        itemOne.setInventoryItem("Corn");
+        itemOne.setQuantityInStock(34000);
+        itemOne.setRequiredAmount(250000);
+        
+        String inventoryInfo = itemOne.toString();
+        System.out.println(inventoryInfo);
+        
+        
+        
         
         
     }
