@@ -3,23 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.josephOfEgypt.model;
+package byui.cit260.josephInEgypt.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-
 /**
  *
- * @author User
+ * @author Brendon.Moore
  */
-public class Player implements Serializable {
+public class Player implements Serializable{
     
+    //class intance variables
     private String name;
     private double bestHarvest;
 
     public Player() {
     }
     
+    
+
     public String getName() {
         return name;
     }
@@ -39,8 +41,8 @@ public class Player implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.bestHarvest) ^ (Double.doubleToLongBits(this.bestHarvest) >>> 32));
+        hash = 41 * hash + Objects.hashCode(this.name);
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.bestHarvest) ^ (Double.doubleToLongBits(this.bestHarvest) >>> 32));
         return hash;
     }
 
@@ -66,7 +68,6 @@ public class Player implements Serializable {
     public String toString() {
         return "Player{" + "name=" + name + ", bestHarvest=" + bestHarvest + '}';
     }
-    
     
     
     
