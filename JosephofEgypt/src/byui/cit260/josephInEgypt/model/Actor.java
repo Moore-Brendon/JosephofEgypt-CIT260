@@ -10,6 +10,7 @@ import java.util.Objects;
 /**
  *
  * @author User
+ * This is a test of Github
  */
 public class Actor {
     
