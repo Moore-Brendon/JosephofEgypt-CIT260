@@ -8,7 +8,8 @@ package byui.cit260.josephInEgypt.model;
 import java.util.Objects;
 
 /**
- *
+ 
+ * 
  * @author User
  */
 public class Map {

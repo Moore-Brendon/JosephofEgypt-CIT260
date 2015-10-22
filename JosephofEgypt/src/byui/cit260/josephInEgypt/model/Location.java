@@ -7,6 +7,7 @@ package byui.cit260.josephInEgypt.model;
 
 /**
  *
+ * 
  * @author User
  */
 public class Location {

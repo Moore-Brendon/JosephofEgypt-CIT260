@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 /**
  *
+ * 
  * @author Brendon.Moore
  */
 public class Player implements Serializable{

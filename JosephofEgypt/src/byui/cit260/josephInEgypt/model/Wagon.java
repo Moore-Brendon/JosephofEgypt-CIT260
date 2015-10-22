@@ -9,7 +9,8 @@ import java.io.Serializable;
 
 /**
  *
- * @author Brendon.Moore
+ * 
+ * author Brendon.Moore
  */
 public class Wagon implements Serializable{
 

@@ -9,6 +9,7 @@ import java.io.Serializable;
 
 /**
  *
+ * 
  * @author Brendon.Moore
  */
 public class Barrel implements Serializable{
