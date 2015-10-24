@@ -26,4 +26,28 @@ public class InventoryControl {
 
 
     }
+    
+        public double calcDesignPyramid (double length, double width, double height) {
+    
+        if (length < 0 || length > 50){
+            return -1;
+        }
+        
+        if (width < 0 || width > 50){
+            return -1;
+                    
+        }
+        
+        if (height < 0 || height > 50){
+            return -1;
+        }
+        
+    double volume = (length * width * height) / 3;
+    
+    return volume;
+       
+        
+}
+
+
 }
