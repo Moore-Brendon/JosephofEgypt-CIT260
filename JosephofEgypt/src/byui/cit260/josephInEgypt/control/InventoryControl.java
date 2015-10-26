@@ -55,8 +55,12 @@ public double calcResourcesNeeded (int dailyCons, int totalDaysOfDrought, int no
      return -1;
     }
     
-    if (totalDaysOfDrought < 2555 || totalDaysOfDrought > 2556.75){
+    if (totalDaysOfDrought < 2555 || totalDaysOfDrought > 2556){
      return -1;
+    }
+    
+    if (noOfPeople != 100000){
+        return -1;
     }
     double amountResourcesNeeded = dailyCons*totalDaysOfDrought*noOfPeople;
 

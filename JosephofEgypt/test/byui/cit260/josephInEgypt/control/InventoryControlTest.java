@@ -265,4 +265,99 @@ public class InventoryControlTest {
         result = instance.calcDesignPyramid(length, width, height);
         assertEquals(expResult, result, 0.01);
 }
+
+    /**
+     * Test of calcResourcesNeeded method, of class InventoryControl.
+     */
+    @Test
+    public void testCalcResourcesNeeded() {
+        
+        System.out.println("calcResourcesNeeded");
+        /****************************
+         * Test case #1
+         ***************************/
+        System.out.println("\tTest calcResourcesNeeded case #1");
+        
+        int dailyCons = 1;
+        int totalDaysOfDrought = 2555;
+        int noOfPeople = 100000;
+        InventoryControl instance = new InventoryControl();
+        double expResult = 255500000.0;
+        double result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        assertEquals(expResult, result, 0.0);
+        
+        
+        /****************************
+         * Test case #2
+         ***************************/
+        System.out.println("\tTest calcResourcesNeeded case #2");
+        
+        dailyCons = 2;
+        totalDaysOfDrought = 2555;
+        noOfPeople = 100000;
+        expResult = -1;
+        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        assertEquals(expResult, result, 0.0);
+        
+        /****************************
+         * Test case #3
+         ***************************/
+        System.out.println("\tTest calcResourcesNeeded case #3");
+        
+        dailyCons = -1;
+        totalDaysOfDrought = 2555;
+        noOfPeople = 100000;
+        expResult = -1;
+        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        assertEquals(expResult, result, 0.0);
+        
+        
+        /****************************
+         * Test case #4
+         ***************************/
+        System.out.println("\tTest calcResourcesNeeded case #4");
+        
+        dailyCons = 1;
+        totalDaysOfDrought = 2601;
+        noOfPeople = 100000;
+        expResult = -1;
+        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        assertEquals(expResult, result, 0.0);
+        
+         /****************************
+         * Test case #5
+         ***************************/
+        System.out.println("\tTest calcResourcesNeeded case #5");
+        
+        dailyCons = 1;
+        totalDaysOfDrought = 2555;
+        noOfPeople = 101000;
+        expResult = -1;
+        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        assertEquals(expResult, result, 0.0);
+        
+         /****************************
+         * Test case #6
+         ***************************/
+        System.out.println("\tTest calcResourcesNeeded case #6");
+        
+        dailyCons = 1;
+        totalDaysOfDrought = 2556;
+        noOfPeople = 100000;
+        expResult = 255600000;
+        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        assertEquals(expResult, result, 0.0);
+        
+         /****************************
+         * Test case #7
+         ***************************/
+        System.out.println("\tTest calcResourcesNeeded case #7");
+        
+        dailyCons = 1;
+        totalDaysOfDrought = 2555;
+        noOfPeople = 100000;
+        expResult = 255500000;
+        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        assertEquals(expResult, result, 0.0);
+    }
 }
