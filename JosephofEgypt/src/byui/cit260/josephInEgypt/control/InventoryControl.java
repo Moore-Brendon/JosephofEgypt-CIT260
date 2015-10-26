@@ -48,6 +48,20 @@ public class InventoryControl {
        
         
 }
+        
+        
+public double calcResourcesNeeded (int dailyCons, int totalDaysOfDrought, int noOfPeople){
+    if (dailyCons != 1 ){
+     return -1;
+    }
+    
+    if (totalDaysOfDrought < 2555 || totalDaysOfDrought > 2556.75){
+     return -1;
+    }
+    double amountResourcesNeeded = dailyCons*totalDaysOfDrought*noOfPeople;
 
+    
+     return amountResourcesNeeded;
+    }
 
 }
