@@ -5,6 +5,9 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import JosephofEgypt.JosephofEgypt;
+import byui.cit260.josephInEgypt.control.GameControl;
+import byui.cit260.josephInEgypt.model.GameMenuView;
 import java.util.Scanner;
 
 /**
@@ -54,8 +57,8 @@ public class MainMenuView {
         return selection;
         }
     
-    public void doAction(char choice) {
-        switch (choice) {
+    public void doAction(char selection) {
+        switch (selection) {
             case 'N':
                 this.startNewGame();
                 break;
@@ -78,7 +81,9 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-        System.out.println("*** startNewGame function called ***");
+        GameControl.createNewGame(JosephofEgypt.getPlayer());
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
 
     private void startExistingGame() {
@@ -99,3 +104,5 @@ public class MainMenuView {
     
 }
 
+
+        
