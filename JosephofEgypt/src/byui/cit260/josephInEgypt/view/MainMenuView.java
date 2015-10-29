@@ -44,18 +44,15 @@ public class MainMenuView {
         while (!valid) {
             System.out.println("Select a menut item:");
             selection = keyboard.nextLine();
-            selection = selection.trim();
-            if (selection.length() < 1 ){
-                System.out.println("Invalid item - the item must not be blank");
-                continue;
-            }
+            selection = selection.toUpperCase();
+            
         break;
             }
         return selection;
         }
     
-    public void doAction(char choice) {
-        switch (choice) {
+    public void doAction(char selection) {
+        switch (selection) {
             case 'N':
                 this.startNewGame();
                 break;
