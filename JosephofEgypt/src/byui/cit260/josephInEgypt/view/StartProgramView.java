@@ -26,6 +26,8 @@ import java.util.Scanner;
         String playersName = this.getPlayersName();
         Player player = ProgramControl.createPlayer(playersName);
         this.displayWelcomeMessage(player);
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayMenu();
         
         
         
