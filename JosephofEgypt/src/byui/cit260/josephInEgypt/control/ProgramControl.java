@@ -5,6 +5,7 @@
  */
 package byui.cit260.josephInEgypt.control;
 
+import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.model.Player;
 
 /**
