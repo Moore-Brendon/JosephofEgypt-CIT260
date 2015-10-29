@@ -5,6 +5,10 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import byui.cit260.josephInEgypt.control.ProgramControl;
+import byui.cit260.josephInEgypt.model.Player;
+import java.util.Scanner;
+
 /**
  *
  * @author Brendon.Moore
@@ -20,6 +24,10 @@ package byui.cit260.josephInEgypt.view;
 
         this.displayBanner();
         String playersName = this.getPlayersName();
+        Player player = ProgramControl.createPlayer(playersName);
+        this.displayWelcomeMessage(player);
+        
+        
         
 
     }   
@@ -57,6 +65,14 @@ package byui.cit260.josephInEgypt.view;
             }
         return playersName;
         }
+
+    private void displayWelcomeMessage(Player player) {
+        System.out.println("\tWelcome to the game " + player.getName());
+        System.out.println("\tWe hope you have a lot of fun!");
+        
+    
+    
+    }
     
     
     
