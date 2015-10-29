@@ -90,7 +90,8 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("*** saveGame function called ***");
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
     }
 
     private void saveGame() {
