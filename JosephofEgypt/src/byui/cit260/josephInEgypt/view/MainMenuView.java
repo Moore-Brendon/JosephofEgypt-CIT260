@@ -40,25 +40,22 @@ public class MainMenuView {
     }
     
     
-    private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        while (!valid) {
-            System.out.println("Select a menut item:");
-            selection = keyboard.nextLine();
-            selection = selection.trim();
-            if (selection.length() < 1 ){
-                System.out.println("Invalid item - the item must not be blank");
-                continue;
-            }
-        break;
-            }
-        return selection;
-        }
-    
-    public void doAction(char selection) {
-        switch (selection) {
+   private String getInput() {
+       boolean valid = false;
+       String selection = null;
+       Scanner keyboard = new Scanner(System.in);
+       while (!valid) {
+           System.out.println("Select a menut item:");
+           selection = keyboard.nextLine();
+           selection = selection.toUpperCase();
+           
+       break;
+           }
+       return selection;
+       }
+   
+   public void doAction(char selection) {
+       switch (selection) {
             case 'N':
                 this.startNewGame();
                 break;
