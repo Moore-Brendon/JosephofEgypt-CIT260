@@ -86,8 +86,9 @@ public class MainMenuView {
     }
 
     private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
-    }
+        GameControl.openSavedGame(JosephofEgypt.getCurrentGame());
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();    }
 
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
@@ -95,8 +96,9 @@ public class MainMenuView {
     }
 
     private void saveGame() {
-        System.out.println("*** displayHelpMenu function called ***");
-    }
+        GameControl.saveGame(JosephofEgypt.saveGame(JosephofEgypt.saveGame(null)));
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();    }
     
     
     

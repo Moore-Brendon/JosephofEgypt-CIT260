@@ -13,14 +13,18 @@ package byui.cit260.josephInEgypt.model;
 public class Game {
     
      // totalTime
-    private double noPeople;
-    private double totalHarvestInPounds;
-    private double noOfMen;    //How many men would be assigned to work?
-    private double noOfWagons;//How many wagons will be assigned to work on this project? or would we want to construct it?
+    private int noPeople;
+    private int totalHarvestInPounds;
+    private int noOfMen;    //How many men would be assigned to work?
+    private int noOfWagons;//How many wagons will be assigned to work on this project? or would we want to construct it?
     private long totalTime;
+    private int savedGame;
     public Game() {
     }
-
+    public long savedGame(){
+        return savedGame;
+    }
+    
     public long getTotalTime() {
         return totalTime;
     }
@@ -34,7 +38,7 @@ public class Game {
         return totalHarvestInPounds;
     }
 
-    public void setTotalHarvestInPounds(double totalHarvestInPounds) {
+    public void setTotalHarvestInPounds(int totalHarvestInPounds) {
         this.totalHarvestInPounds = totalHarvestInPounds;
     }
 
@@ -42,7 +46,7 @@ public class Game {
         return noOfMen;
     }
 
-    public void setNoOfMen(double noOfMen) {
+    public void setNoOfMen(int noOfMen) {
         this.noOfMen = noOfMen;
     }
 
@@ -50,7 +54,7 @@ public class Game {
         return noOfWagons;
     }
 
-    public void setNoOfWagons(double noOfWagons) {
+    public void setNoOfWagons(int noOfWagons) {
         this.noOfWagons = noOfWagons;
     }
 
@@ -58,7 +62,7 @@ public class Game {
         return noPeople;
     }
 
-    public void setNoPeople(double noPeople) {
+    public void setNoPeople(int noPeople) {
         this.noPeople = noPeople;
     }
 
