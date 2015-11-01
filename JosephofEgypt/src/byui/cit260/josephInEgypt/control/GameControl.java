@@ -6,6 +6,7 @@
 package byui.cit260.josephInEgypt.control;
 
 import byui.cit260.josephInEgypt.model.Player;
+import byui.cit260.josephInEgypt.model.Game;
 
 /**
  *
@@ -16,5 +17,16 @@ public class GameControl {
     public static void createNewGame(Player player) {
         System.out.println("\n*** createNewGame stub function called ***"); 
     }
+    
+    public static void openSavedGame(Game currentGame){
+        System.out.println("\n*** openSavedGame stub function called ***"); 
+
+    }
+    public static void saveGame(Game currentGame){
+        System.out.println("\n*** saveGame stub function called ***"); 
+
+    }
+    
+    
     
 }

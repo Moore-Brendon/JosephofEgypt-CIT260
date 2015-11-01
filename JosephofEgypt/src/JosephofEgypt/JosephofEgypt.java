@@ -15,8 +15,9 @@ import byui.cit260.josephInEgypt.view.StartProgramView;
  */
 public class JosephofEgypt {
 
-       private static Game currentGame = null;
+    private static Game currentGame = null;
     private static Player player = null;
+    private static Game savedGame = null;
     /**
      * @param args the command line arguments
      */
@@ -42,6 +43,8 @@ public class JosephofEgypt {
         JosephofEgypt.player = player;
     }
     
-    
+    public static Game saveGame(Game savedGame ){
+       return savedGame;
+    }
     
 }
