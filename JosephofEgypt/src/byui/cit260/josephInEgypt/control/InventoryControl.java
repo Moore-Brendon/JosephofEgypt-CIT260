@@ -10,6 +10,10 @@ package byui.cit260.josephInEgypt.control;
  * @author Brendon.Moore
  */
 public class InventoryControl {
+
+    public static void savePyramid() {
+        System.out.println("\n*** savePyramid stub function called ***"); 
+    }
     
     public double calcVolumeOfBarrel(double height, double radius){
     

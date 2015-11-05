@@ -34,7 +34,7 @@ public class HelpMenuView {
             selection = input.charAt(0);
             this.doAction(selection);
             
-        } while (selection != 'E');
+        } while (selection != 'Q');
     }
       
       private String getInput() {

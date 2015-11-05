@@ -26,6 +26,35 @@ public class GameControl {
         System.out.println("\n*** saveGame stub function called ***"); 
 
     }
+
+    public static void moveRiverside() {
+        System.out.println("\n*** moveRiverside stub function called ***"); 
+    }
+
+    public static void moveMineral() {
+        System.out.println("\n*** moveMineral stub function called ***");
+    }
+
+    public static void moveCity() {
+        System.out.println("\n*** moveCity stub function called ***");
+    }
+
+    public static void moveVillage() {
+        System.out.println("\n*** moveVillage stub function called ***");
+    }
+    
+    public static void moveCattle() {
+        System.out.println("\n*** moveCattle stub function called ***"); 
+    }
+    
+    public static void moveWarehouse() {
+        System.out.println("\n*** moveWarehouse stub function called ***"); 
+    }
+    
+    public static void moveMountain() {
+        System.out.println("\n*** moveMountain stub function called ***"); 
+}
+    
     
     
     
