@@ -15,12 +15,19 @@ public class GameMenuView {
     
      private final String MENU = "\n"
             + "\n----------------------------"
-            + "\n| Main Menu                |"
+            + "\n| Game Menu                |"
             + "\n----------------------------"
-            + "\nG - Start game"
-            + "\nH - Get help on how to play the game"
-            + "\nS - Save game"
-            + "\nE - Exit"
+            + "\nM - Move to a new location"
+            + "\nX - Explore location"
+            + "\nH - Calculate Harvest"
+            + "\nP - Construct Pyramid"
+            + "\nT - Construct Tools "
+            + "\nC - Construct  Barrels "
+            + "\nG - Transport Goods "
+            + "\nD - Deliver Goods "
+            + "\nV - View Game Map "
+            + "\nI - Show Current Inventory  "
+            + "\nE - Exit "
             + "\n----------------------------";
           
             
