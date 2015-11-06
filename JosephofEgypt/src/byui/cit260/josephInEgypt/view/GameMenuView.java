@@ -19,10 +19,11 @@ public class GameMenuView {
             + "\n----------------------------"
             + "\nM - Move to a new location"
             + "\nX - Explore location"
-            + "\nH - Calculate Harvest"
+            + "\nC - Calculate Harvest"
             + "\nP - Construct Pyramid"
             + "\nT - Construct Tools "
-            + "\nC - Construct  Barrels "
+            + "\nB - Construct  Barrels "
+            + "\nH - Harvest Resource "
             + "\nG - Transport Goods "
             + "\nD - Deliver Goods "
             + "\nV - View Game Map "
@@ -69,7 +70,7 @@ public class GameMenuView {
             case 'X':
                 this.exploreLocation();
                 break;
-            case 'H':
+            case 'C':
                 this.calculateHarvest();
                 break;
             case 'P':
@@ -80,7 +81,10 @@ public class GameMenuView {
                 break;
             case 'B':
                 this.constructBarrels();
-                break; 
+                break;
+            case 'H':
+                this.HarvestResource();
+                break;
             case 'G':
                 this.transportGoods();
                 break; 
@@ -103,15 +107,31 @@ public class GameMenuView {
     }
 
     private void moveToNewLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //display banner with a graphical map, the map needs a symbol to distinguish territories
+        //prompt user to enter coordinates
+        //validate input with if ladder
+        //display time to travel
+        //promt user to accept time
+        //add time to the time class interface
     }
 
     private void exploreLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /*Display the current position territory  
+        * sorted list of resources availble for harvest
+        * progress status
+        * time left to complete task
+        */
     }
 
     private void calculateHarvest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // display banner instructing user what to do
+        // prompt user to enter no of People
+        //validate input
+        //prompt user to enter total amount of days in famine
+        //validate input
+        // set harvest objective
+        //display harvest objective
+        
     }
 
     private void constructPyramid() {
@@ -140,6 +160,19 @@ public class GameMenuView {
 
     private void showCurrentInventory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void HarvestResource() {
+    
+        //display banner prompting user to enter resource(switch)
+        //get input and asign value to resource
+        //test if resource is a valid option
+        //test if resource is available
+        //test if amount harvest is less than or equal to the available
+        //test if amount desired harvest can be stored in barrels available
+        //display banner to confrm action yes no filter
+        //set time to perform action set status to active
+        
     }
     
 }
