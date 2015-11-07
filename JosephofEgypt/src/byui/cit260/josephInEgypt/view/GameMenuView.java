@@ -215,12 +215,7 @@ public class GameMenuView {
         System.out.println("Enter total amount of days: ");    
         totalDays = keyboard.nextInt();
           
-            if (totalDays < 2555 || totalDays > 2556){
-                valid = true;
-                }
-            else {
-                valid = false;
-            }
+        valid = totalDays < 2555 || totalDays > 2556;
         }
         
          return totalDays;
