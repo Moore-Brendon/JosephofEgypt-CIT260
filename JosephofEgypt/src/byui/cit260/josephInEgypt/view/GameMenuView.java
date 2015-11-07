@@ -5,6 +5,7 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import byui.cit260.josephInEgypt.control.InventoryControl;
 import java.util.Scanner;
 
 /**
@@ -125,11 +126,23 @@ public class GameMenuView {
 
     private void calculateHarvest() {
         // display banner instructing user what to do
+        System.out.println("\nTo calculate harvest several values must be known"
+                + "\nthe daily ingest number and the number of people"
+                + "\nbe sure to know this numbers, game will require an exact amount. "
+                + "\nif you don't remember this numbers go to help menu to receive more"
+                + "\nasistance and to the city territory to explore amount of people in the city."        
+        );
+        
         // prompt user to enter no of People
+        int noOfPeople = Integer.parseInt(this.getNoOfPeople()) ;
         //validate input
         //prompt user to enter total amount of days in famine
+        int totalDays = Integer.parseInt(this.getTotalDays());
         //validate input
+        //prompt user to enter total of harvest needed
+        int totalHarvestNeeded = Integer.parseInt(this.getTotalHarvestNeeded());
         // set harvest objective
+        
         //display harvest objective
         
     }
@@ -175,4 +188,48 @@ public class GameMenuView {
         
     }
     
+    private String getNoOfPeople(){
+      
+        boolean valid = false;
+        String noOfPeople = null;
+        Scanner keyboard = new Scanner(System.in);
+        //validate input by comparing with stablished parameters
+        while(!valid){
+        System.out.println("Enter total amount of people: ");    
+        noOfPeople = keyboard.nextLine();
+        break;
+        }
+        
+         return noOfPeople;
+        
+        }
+    private String getTotalDays(){
+        
+         boolean valid = false;
+        String totalDays = null;
+        Scanner keyboard = new Scanner(System.in);
+        //validate input by comparing with stablished parameters
+        while(!valid){
+        System.out.println("Enter total amount of days: ");    
+        totalDays = keyboard.nextLine();
+        break;
+        }
+        
+         return totalDays;
+        
+    }
+
+    private String getTotalHarvestNeeded() {
+        boolean valid = false;
+        String totalHarvestNeeded = null;
+        Scanner keyboard = new Scanner(System.in);
+        //validate input by comparing with stablished parameters
+        while(!valid){
+        System.out.println("Enter total amount of days: ");    
+        totalHarvestNeeded = keyboard.nextLine();
+        break;
+        }
+        
+         return totalHarvestNeeded;
+    }
 }

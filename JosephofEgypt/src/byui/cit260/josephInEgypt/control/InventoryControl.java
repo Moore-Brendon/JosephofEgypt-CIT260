@@ -54,7 +54,7 @@ public class InventoryControl {
 }
         
         
-public double calcResourcesNeeded (int dailyCons, int totalDaysOfDrought, int noOfPeople){
+public static double calcResourcesNeeded (int dailyCons, int totalDaysOfDrought, int noOfPeople){
     if (dailyCons != 1 ){
      return -1;
     }
