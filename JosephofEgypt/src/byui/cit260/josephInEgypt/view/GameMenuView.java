@@ -5,6 +5,7 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import byui.cit260.josephInEgypt.control.HarvestControl;
 import byui.cit260.josephInEgypt.control.InventoryControl;
 import java.util.Scanner;
 
@@ -133,18 +134,15 @@ public class GameMenuView {
                 + "\nasistance and to the city territory to explore amount of people in the city."        
         );
         
-        // prompt user to enter no of People
-        int noOfPeople = Integer.parseInt(this.getNoOfPeople()) ;
-        //validate input
-        //prompt user to enter total amount of days in famine
-        int totalDays = Integer.parseInt(this.getTotalDays());
-        //validate input
-        //prompt user to enter total of harvest needed
-        int totalHarvestNeeded = Integer.parseInt(this.getTotalHarvestNeeded());
+        int dailyCons = this.getDailyCons();
+        int noOfPeople = this.getNoOfPeople();
+        int totalDays = this.getTotalDays();
+        int totalHarvestNeeded = InventoryControl.calcResourcesNeeded(dailyCons, totalDays, noOfPeople);
         // set harvest objective
-        
+        this.saveHarvestObj();
         //display harvest objective
-        
+        System.out.println("The game harvest objective is: " + totalHarvestNeeded);
+        this.displayMenu();
     }
 
     private void constructPyramid() {
@@ -188,48 +186,66 @@ public class GameMenuView {
         
     }
     
-    private String getNoOfPeople(){
+    private int getNoOfPeople(){
       
         boolean valid = false;
-        String noOfPeople = null;
+        int noOfPeople = 0;
         Scanner keyboard = new Scanner(System.in);
         //validate input by comparing with stablished parameters
         while(!valid){
         System.out.println("Enter total amount of people: ");    
-        noOfPeople = keyboard.nextLine();
-        break;
+        noOfPeople = keyboard.nextInt();
+          
+            if (noOfPeople != 100000){
+                valid = false;
+                }
+        
         }
         
          return noOfPeople;
         
         }
-    private String getTotalDays(){
+    private int getTotalDays(){
         
-         boolean valid = false;
-        String totalDays = null;
+        boolean valid = false;
+        int totalDays = 0;
         Scanner keyboard = new Scanner(System.in);
         //validate input by comparing with stablished parameters
         while(!valid){
         System.out.println("Enter total amount of days: ");    
-        totalDays = keyboard.nextLine();
-        break;
+        totalDays = keyboard.nextInt();
+          
+            if (totalDays < 2555 || totalDays > 2556){
+                valid = true;
+                }
+            else {
+                valid = false;
+            }
         }
         
          return totalDays;
         
+        
     }
 
-    private String getTotalHarvestNeeded() {
+    private int getDailyCons() {
         boolean valid = false;
-        String totalHarvestNeeded = null;
+        int dailyCons = 0;
         Scanner keyboard = new Scanner(System.in);
-        //validate input by comparing with stablished parameters
-        while(!valid){
-        System.out.println("Enter total amount of days: ");    
-        totalHarvestNeeded = keyboard.nextLine();
-        break;
-        }
         
-         return totalHarvestNeeded;
+        while(!valid){
+            System.out.println("Enter daily consumprion per person: ");
+            dailyCons = keyboard.nextInt();
+            if(dailyCons!=1){
+                valid = false;
+                }
+        }
+         return dailyCons;
+        
     }
+
+    private void saveHarvestObj() {
+       HarvestControl.saveHarvestObj();
+    }
+
 }
