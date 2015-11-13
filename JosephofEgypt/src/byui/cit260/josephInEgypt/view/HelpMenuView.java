@@ -5,15 +5,14 @@
  */
 package byui.cit260.josephInEgypt.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author User
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
     
-      private final String MENU = "\n"
+     public HelpMenuView(){
+         super( "\n"
             + "\n----------------------------"
             + "\n| Help Menu                |"
             + "\n----------------------------"
@@ -23,36 +22,17 @@ public class HelpMenuView {
             + "\nH - Harvesting"
             + "\nD - Deliver Resources"
             + "\nQ - Quit"
-            + "\n----------------------------";
+            + "\n----------------------------");
+     }
+     
       
-      public void displayMenu(){
-        char selection = ' ';
-        do{
-            
-            System.out.println(MENU);
-            String input = this.getInput();
-            selection = input.charAt(0);
-            this.doAction(selection);
-            
-        } while (selection != 'Q');
-    }
-      
-      private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        while (!valid) {
-            System.out.println("Select a menut item:");
-            selection = keyboard.nextLine();
-            selection = selection.toUpperCase();
-            
-        break;
-            }
-        return selection;
-        }
-    
-    public void doAction(char selection) {
-        switch (selection) {
+    @Override   
+    public boolean doAction(Object obj ) {
+        String value =(String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
+        switch (choice) {
   
             
             case 'G':
@@ -71,12 +51,13 @@ public class HelpMenuView {
                 this.displayHowToDeliver();
                 break;
             case 'Q':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid selection*** Try again");
                 break;
                 
         }
+        return false;
     }
 
     private void displayGoal() {
