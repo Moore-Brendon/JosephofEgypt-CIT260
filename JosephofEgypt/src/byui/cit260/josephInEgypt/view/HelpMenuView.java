@@ -62,62 +62,62 @@ public class HelpMenuView extends View {
 
     private void displayGoal() {
         System.out.println("\n"
-                +"----------------------------------"
-                + "The player win when have compled"
-                + " all assignments correctly and"
-                + "having a good administration"
-                + "and reaching the requared quantity"
-                + "in less time"
-                + "----------------------------------"
-                + "There will be competition "
-                + "with others playersdisplayGoal function called");
+                +"\n----------------------------------"
+                + "\nThe player win when have compled"
+                + "\n all assignments correctly and"
+                + "\nhaving a good administration"
+                + "\nand reaching the requared quantity"
+                + "\nin less time"
+                + "\n----------------------------------"
+                + "\nThere will be competition "
+                + "\nwith others playersdisplayGoal function called");
     }
 
     private void displayHowToMove() {
         System.out.println("\n "
-                + "---------------------------------"
-                + "Joseph needs to travel along the "
-                + "territory,chose principals and "
-                + "give them instruction respect the goals"
-                + "that they need to accomplish"
-                + "The principals must be to Construc,"
-                + "to Harvest, to Deliver"
-                + "Joseph needs to go from the city "
-                + "to the places where get metals and stons"
-                + "where get the woods "
-                + "------------------------------------"
-                + "displayHowToMove function called");    }
+                + "\n---------------------------------"
+                + "\nJoseph needs to travel along the "
+                + "\nterritory,chose principals and "
+                + "\ngive them instruction respect the goals"
+                + "\nthat they need to accomplish"
+                + "\nThe principals must be to Construc,"
+                + "\nto Harvest, to Deliver"
+                + "\nJoseph needs to go from the city "
+                + "\nto the places where get metals and stons"
+                + "\nwhere get the woods "
+                + "\n------------------------------------"
+                + "\ndisplayHowToMove function called");    }
 
     private void displayHowToConstruct() {
         System.out.println("\n"
-                + "Joseph decided to construct"
-                + "only one big pyramid to store"
-                + "the grains and have the total"
-                + "control over the grains"
-                + "Joseph knows that in average needs 50 men"
-                + "to construct one square yard "
-                + "in ten daysdisplayHowToConstruct function called");    }
+                + "\nJoseph decided to construct"
+                + "\nonly one big pyramid to store"
+                + "\nthe grains and have the total"
+                + "\ncontrol over the grains"
+                + "\nJoseph knows that in average needs 50 men"
+                + "\nto construct one square yard "
+                + "\nin ten daysdisplayHowToConstruct function called");    }
 
     private void displayHowToHarvest() {
         System.out.println("\n "
-                + "Joseph needs to have spetialist "
-                + "to have a very good harvest and he needs "
-                + "to sow very well and get the best seeds"
-                + "and manteinance the grains in good state"
-                + "Joseph knows that in average"
-                + "a person needs 2 pounds of grains to survive"
-                + "one day, and Joseph expect 20000 people"
-                + "in 7 years one peodisplayHowToConstruct function called");    }
+                + "\nJoseph needs to have spetialist "
+                + "\nto have a very good harvest and he needs "
+                + "\nto sow very well and get the best seeds"
+                + "\nand manteinance the grains in good state"
+                + "\nJoseph knows that in average"
+                + "\na person needs 2 pounds of grains to survive"
+                + "\none day, and Joseph expect 20000 people"
+                + "\nin 7 years one peodisplayHowToConstruct function called");    }
 
     private void displayHowToDeliver() {
         System.out.println("\n"
-                + "Joseph needs to deliver the grain "
-                + "to send the grain needs carts"
-                + "and people to drive the carts and care the grain"
-                + "While the pyramid is constructing"
-                + "the graing will be store in barrels"
-                + "and Joseph will send them with carts"
-                + " displayHowToDeliver function called");
+                + "\nJoseph needs to deliver the grain "
+                + "\nto send the grain needs carts"
+                + "\nand people to drive the carts and care the grain"
+                + "\nWhile the pyramid is constructing"
+                + "\nthe graing will be store in barrels"
+                + "\nand Joseph will send them with carts"
+                + "\ndisplayHowToDeliver function called");
     }
 }
     
