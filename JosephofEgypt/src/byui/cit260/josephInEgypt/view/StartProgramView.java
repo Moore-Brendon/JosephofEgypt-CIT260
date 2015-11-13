@@ -27,7 +27,7 @@ import java.util.Scanner;
         Player player = ProgramControl.createPlayer(playersName);
         this.displayWelcomeMessage(player);
         MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayMenu();
+        mainMenu.display();
         
         
         

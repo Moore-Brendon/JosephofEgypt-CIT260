@@ -5,6 +5,8 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import byui.cit260.josephInEgypt.control.HarvestControl;
+import byui.cit260.josephInEgypt.control.InventoryControl;
 import java.util.Scanner;
 
 /**
@@ -19,10 +21,11 @@ public class GameMenuView {
             + "\n----------------------------"
             + "\nM - Move to a new location"
             + "\nX - Explore location"
-            + "\nH - Calculate Harvest"
+            + "\nC - Calculate Harvest"
             + "\nP - Construct Pyramid"
             + "\nT - Construct Tools "
-            + "\nC - Construct  Barrels "
+            + "\nB - Construct  Barrels "
+            + "\nH - Harvest Resource "
             + "\nG - Transport Goods "
             + "\nD - Deliver Goods "
             + "\nV - View Game Map "
@@ -69,7 +72,7 @@ public class GameMenuView {
             case 'X':
                 this.exploreLocation();
                 break;
-            case 'H':
+            case 'C':
                 this.calculateHarvest();
                 break;
             case 'P':
@@ -80,7 +83,10 @@ public class GameMenuView {
                 break;
             case 'B':
                 this.constructBarrels();
-                break; 
+                break;
+            case 'H':
+                this.HarvestResource();
+                break;
             case 'G':
                 this.transportGoods();
                 break; 
@@ -103,20 +109,48 @@ public class GameMenuView {
     }
 
     private void moveToNewLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //display banner with a graphical map, the map needs a symbol to distinguish territories
+        //prompt user to enter coordinates
+        //validate input with if ladder
+        //display time to travel
+        //promt user to accept time
+        //add time to the time class interface
     }
 
     private void exploreLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /*Display the current position territory  
+        * sorted list of resources availble for harvest
+        * progress status
+        * time left to complete task
+        */
     }
 
     private void calculateHarvest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // display banner instructing user what to do
+        System.out.println("\nTo calculate harvest several values must be known"
+                + "\nthe daily ingest number and the number of people"
+                + "\nbe sure to know this numbers, game will require an exact amount. "
+                + "\nif you don't remember this numbers go to help menu to receive more"
+                + "\nasistance and to the city territory to explore amount of people in the city."        
+        );
+        
+        int dailyCons = this.getDailyCons();
+        int noOfPeople = this.getNoOfPeople();
+        int totalDays = this.getTotalDays();
+        int totalHarvestNeeded = InventoryControl.calcResourcesNeeded(dailyCons, totalDays, noOfPeople);
+        // set harvest objective
+        this.saveHarvestObj();
+        //display harvest objective
+        System.out.println("The game harvest objective is: " + totalHarvestNeeded);
+        this.displayMenu();
     }
 
     private void constructPyramid() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
+
+    
 
     private void constructTools() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -141,5 +175,77 @@ public class GameMenuView {
     private void showCurrentInventory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    private void HarvestResource() {
     
+        //display banner prompting user to enter resource(switch)
+        //get input and asign value to resource
+        //test if resource is a valid option
+        //test if resource is available
+        //test if amount harvest is less than or equal to the available
+        //test if amount desired harvest can be stored in barrels available
+        //display banner to confrm action yes no filter
+        //set time to perform action set status to active
+        
+    }
+    
+    private int getNoOfPeople(){
+      
+        boolean valid = false;
+        int noOfPeople = 0;
+        Scanner keyboard = new Scanner(System.in);
+        //validate input by comparing with stablished parameters
+        while(!valid){
+        System.out.println("Enter total amount of people: ");    
+        noOfPeople = keyboard.nextInt();
+          
+            if (noOfPeople != 100000){
+                valid = false;
+                }
+        
+        }
+        
+         return noOfPeople;
+        
+        }
+    private int getTotalDays(){
+        
+        boolean valid = false;
+        int totalDays = 0;
+        Scanner keyboard = new Scanner(System.in);
+        //validate input by comparing with stablished parameters
+        while(!valid){
+        System.out.println("Enter total amount of days: ");    
+        totalDays = keyboard.nextInt();
+          
+        if (totalDays < 2555 || totalDays > 2556){
+            valid = true;
+        }
+        }
+        
+         return totalDays;
+        
+        
+    }
+
+    private int getDailyCons() {
+        boolean valid = false;
+        int dailyCons = 0;
+        Scanner keyboard = new Scanner(System.in);
+        
+        while(!valid){
+            System.out.println("Enter daily consumprion per person: ");
+            dailyCons = keyboard.nextInt();
+            if(dailyCons!=1){
+                valid = false;
+                }
+        }
+         return dailyCons;
+        
+    }
+
+    private void saveHarvestObj() {
+       HarvestControl.saveHarvestObj();
+    }
+
 }

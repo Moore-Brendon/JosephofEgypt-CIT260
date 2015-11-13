@@ -14,8 +14,10 @@ import java.util.Scanner;
  *
  * @author Brendon.Moore
  */
-public class MainMenuView {
-    private final String MENU = "\n"
+public class MainMenuView extends View {
+    
+    public MainMenuView(){
+        super("\n"
             + "\n----------------------------"
             + "\n| Main Menu                |"
             + "\n----------------------------"
@@ -24,39 +26,20 @@ public class MainMenuView {
             + "\nH - Get help on how to play the game"
             + "\nS - Save game"
             + "\nE - Exit"
-            + "\n----------------------------";
+            + "\n----------------------------");
           
             
     
-    public void displayMenu(){
-        char selection = ' ';
-        do{
-            
-            System.out.println(MENU);
-            String input = this.getInput();
-            selection = input.charAt(0);
-            this.doAction(selection);
-            
-        } while (selection != 'E');
     }
     
     
-    private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        while (!valid) {
-            System.out.println("Select a menut item:");
-            selection = keyboard.nextLine();
-            selection = selection.toUpperCase();
-            
-        break;
-            }
-        return selection;
-        }
-    
-    public void doAction(char selection) {
-        switch (selection) {
+    @Override
+    public boolean doAction(Object obj) {
+        String value =(String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
+        switch (choice) {
   
             
             case 'N':
@@ -72,12 +55,13 @@ public class MainMenuView {
                 this.saveGame();
                 break;
             case 'E':
-                return;
+                return false ;
             default:
                 System.out.println("\n*** Invalid selection*** Try again");
                 break;
                 
         }
+        return false;
     }
 
     private void startNewGame() {
