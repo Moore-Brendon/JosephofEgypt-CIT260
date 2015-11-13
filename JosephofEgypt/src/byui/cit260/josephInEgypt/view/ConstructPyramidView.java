@@ -47,8 +47,8 @@ public class ConstructPyramidView {
         while (!valid) {
             System.out.println("Length:");
             input = keyboard.nextDouble();
-            if (input < 1 ){
-            System.out.println ("Size must be greater than 0.");
+            if (input < 1 | input > 50 ){
+            System.out.println ("Length must be greater than 0 and less than 50.");
             continue;
             }
             
@@ -64,8 +64,8 @@ public class ConstructPyramidView {
         while (!valid) {
             System.out.println("Width:");
             input = keyboard.nextDouble();
-            if (input < 1 ){
-            System.out.println ("Size must be greater than 0.");
+            if (input < 1 | input > 50  ){
+            System.out.println ("Width must be greater than 0 and less than 50.");
             continue;
             }
             
@@ -80,10 +80,10 @@ public class ConstructPyramidView {
         while (!valid) {
             System.out.println("Height:");
             input = keyboard.nextDouble();
-            if (input < 1 ){
-				System.out.println ("Size must be greater than 0.");
-				continue;
-				}
+            if (input < 1 | input > 50 ){
+            System.out.println ("Height must be greater than 0 and less than 50.");
+            continue;
+            }
             
         break;
             }
