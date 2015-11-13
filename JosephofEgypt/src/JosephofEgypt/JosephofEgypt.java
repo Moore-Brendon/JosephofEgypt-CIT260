@@ -24,7 +24,7 @@ public class JosephofEgypt {
     public static void main(String[] args) {
         // TODO code application logic here
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.startProgram();
+        startProgramView.display();
     }
 
     public static Game getCurrentGame() {
