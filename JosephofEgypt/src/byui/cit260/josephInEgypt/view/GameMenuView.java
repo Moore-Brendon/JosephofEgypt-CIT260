@@ -172,7 +172,8 @@ public class GameMenuView extends View{
     }
 
     private void showCurrentInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        InventoryMenuView inventory = new InventoryMenuView();
+        inventory.display();
     }
 
     private void HarvestResource() {

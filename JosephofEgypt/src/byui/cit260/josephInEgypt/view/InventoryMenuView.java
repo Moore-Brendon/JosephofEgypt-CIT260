@@ -9,9 +9,10 @@ import java.util.Scanner;
  *
  * @author juan
  */
-public class InventoryMenuView {
+public class InventoryMenuView extends View {
     
-     private final String MENU = "\n"
+     public InventoryMenuView(){
+         super("\n"
             + "\n----------------------------"
             + "\n| Help Menu                |"
             + "\n----------------------------"
@@ -20,35 +21,15 @@ public class InventoryMenuView {
             + "\nH - How many harvest"
             + "\nW - How many wagons"
             + "\nQ - Quit"
-            + "\n----------------------------";
-     public void displayMenu(){
-        char selection = ' ';
-        do{
+            + "\n----------------------------");
             
-            System.out.println(MENU);
-            String input = this.getInput();
-            selection = input.charAt(0);
-            this.doAction(selection);
-            
-        } while (selection != 'E');
-    }
-
-     private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        while (!valid) {
-            System.out.println("Select a menut item:");
-            selection = keyboard.nextLine();
-            selection = selection.toUpperCase();
-            
-        break;
-            }
-        return selection;
-        }
-    
-    public void doAction(char selection) {
-        switch (selection) {
+     }
+    @Override    
+    public boolean doAction(Object obj) {
+        String value =(String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        switch (choice) {
   
             
             case 'B':
@@ -65,12 +46,13 @@ public class InventoryMenuView {
                 break;
                       
             case 'Q':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid selection*** Try again");
                 break;
                 
         }
+        return false;
     }
       private void displayBarrels() {
         System.out.println("\n"
