@@ -15,6 +15,8 @@ import java.util.Scanner;
  *
  * @author Brendon.Moore
  */
+
+// THIS VIEW IS NO LONGER BEING USED. CODE WAS MOVED TO GAMEMENUVIEW
 public class ConstructPyramidView {
     private final String MENU = "\n"
             + "\n----------------------------"

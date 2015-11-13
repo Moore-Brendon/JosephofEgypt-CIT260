@@ -13,9 +13,9 @@ import java.util.Scanner;
  *
  * @author User
  */
-public class GameMenuView {
-    
-     private final String MENU = "\n"
+public class GameMenuView extends View{
+    public GameMenuView(){
+     super("\n"
             + "\n----------------------------"
             + "\n| Game Menu                |"
             + "\n----------------------------"
@@ -31,41 +31,19 @@ public class GameMenuView {
             + "\nV - View Game Map "
             + "\nI - Show Current Inventory  "
             + "\nE - Exit "
-            + "\n----------------------------";
-          
+            + "\n----------------------------");
+}
             
     
-    public void displayMenu(){
-        char selection = ' ';
-        do{
-            
-            System.out.println(MENU);
-            String input = this.getInput();
-            selection = input.charAt(0);
-            this.doAction(selection);
-            
-        } while (selection != 'E');
-    }
+   @Override
     
-    
-    private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        while (!valid) {
-            System.out.println("Select a menut item:");
-            selection = keyboard.nextLine();
-            selection = selection.toUpperCase();
-            
-        break;
-            }
-        return selection;
-        }
-    
-    public void doAction(char selection) {
-        switch (selection) {
-  
-            
+    public boolean doAction(Object obj) {
+        String value =(String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
+        switch (choice) {
+
             case 'M':
                 this.moveToNewLocation();
                 break;
@@ -100,12 +78,13 @@ public class GameMenuView {
                 this.showCurrentInventory();
                 break;
             case 'E':
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection*** Try again");
                 break;
                 
         }
+        return false;
     }
 
     private void moveToNewLocation() {
@@ -142,12 +121,32 @@ public class GameMenuView {
         this.saveHarvestObj();
         //display harvest objective
         System.out.println("The game harvest objective is: " + totalHarvestNeeded);
-        this.displayMenu();
+        this.display();
     }
 
     private void constructPyramid() {
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
+        System.out.println( "\n"
+            + "\n----------------------------"
+            + "\n| Enter dimensions of pyramid.              |"
+            + "\n----------------------------"
+            + "\n----------------------------");
+          
+        
+        double length;
+	double width;
+	double height;
+        double volume;
+        //System.out.println(MENU);
+        length = this.getPLength();
+        width = this.getPWidth();
+        height = this.getPHeight();
+        volume = this.doPAction(length,width,height);
+        this.savePyramid();
+        System.out.println("Pyramid saved. Volume:" + volume);
+        
+    
     }
 
     
@@ -247,5 +246,62 @@ public class GameMenuView {
     private void saveHarvestObj() {
        HarvestControl.saveHarvestObj();
     }
-
+ private double getPLength() {
+        boolean valid = false;
+        double input = 0;
+        Scanner keyboard = new Scanner(System.in);
+        while (!valid) {
+            System.out.println("Length:");
+            input = keyboard.nextDouble();
+            if (input < 1 | input > 50 ){
+            System.out.println ("Length must be greater than 0 and less than 50.");
+            continue;
+            }
+            
+        break;
+            }
+        return input;
+        }
+ 
+ private double getPWidth() {
+        boolean valid = false;
+        double input = 0;
+        Scanner keyboard = new Scanner(System.in);
+        while (!valid) {
+            System.out.println("Width:");
+            input = keyboard.nextDouble();
+            if (input < 1 | input > 50  ){
+            System.out.println ("Width must be greater than 0 and less than 50.");
+            continue;
+            }
+            
+        break;
+            }
+        return input;
+        }
+    private double getPHeight() {
+        boolean valid = false;
+        double input = 0;
+        Scanner keyboard = new Scanner(System.in);
+        while (!valid) {
+            System.out.println("Height:");
+            input = keyboard.nextDouble();
+            if (input < 1 | input > 50 ){
+            System.out.println ("Height must be greater than 0 and less than 50.");
+            continue;
+            }
+            
+        break;
+            }
+        return input;
+    }
+    public double doPAction(double length, double width, double height) {
+       InventoryControl inventoryControl = new InventoryControl();
+       double volume = inventoryControl.calcDesignPyramid (length, width, height);
+       return volume;
+    }
+    private void savePyramid() {
+        InventoryControl.savePyramid();
+        //need  code to return to see the game menu
+    }
 }

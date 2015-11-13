@@ -7,7 +7,7 @@ package byui.cit260.josephInEgypt.view;
 
 import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.control.GameControl;
-import byui.cit260.josephInEgypt.model.GameMenuView;
+import byui.cit260.josephInEgypt.view.GameMenuView;
 import java.util.Scanner;
 
 /**
@@ -55,7 +55,7 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             case 'E':
-                return false ;
+                return true ;
             default:
                 System.out.println("\n*** Invalid selection*** Try again");
                 break;
@@ -67,13 +67,13 @@ public class MainMenuView extends View {
     private void startNewGame() {
         GameControl.createNewGame(JosephofEgypt.getPlayer());
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     private void startExistingGame() {
         GameControl.openSavedGame(JosephofEgypt.getCurrentGame());
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();    }
+        gameMenu.display();    }
 
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
@@ -83,7 +83,7 @@ public class MainMenuView extends View {
     private void saveGame() {
         GameControl.saveGame(JosephofEgypt.saveGame(JosephofEgypt.saveGame(null)));
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();    }
+        gameMenu.display();    }
     
     
     
