@@ -6,8 +6,6 @@
 package byui.cit260.josephInEgypt.view;
 
 import byui.cit260.josephInEgypt.control.InventoryControl;
-import byui.cit260.josephInEgypt.control.GameControl;
-
 import byui.cit260.josephInEgypt.model.GameMenuView;
 import java.util.Scanner;
 
@@ -103,14 +101,7 @@ public class ConstructPyramidView {
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
     }
-
-	
-	
-    
-    
-    
-    
-    
+   
 }
 
 

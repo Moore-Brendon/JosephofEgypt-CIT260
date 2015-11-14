@@ -303,6 +303,6 @@ public class GameMenuView extends View{
     }
     private void savePyramid() {
         InventoryControl.savePyramid();
-        //need  code to return to see the game menu
+        this.display();
     }
 }

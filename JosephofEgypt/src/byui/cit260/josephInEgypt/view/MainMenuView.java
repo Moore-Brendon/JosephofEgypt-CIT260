@@ -81,9 +81,8 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        GameControl.saveGame(JosephofEgypt.saveGame(JosephofEgypt.saveGame(null)));
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();    }
+        SaveGameView saveGame = new SaveGameView();
+        saveGame.display();    }
     
     
     
