@@ -5,17 +5,36 @@
  */
 package byui.cit260.josephInEgypt.control;
 
+import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.model.Player;
 import byui.cit260.josephInEgypt.model.Game;
+import byui.cit260.josephInEgypt.model.InventoryItem;
+import byui.cit260.josephInEgypt.model.Map;
+import byui.cit260.josephInEgypt.model.Pyramid;
+import byui.cit260.josephInEgypt.model.Wagon;
 
 /**
  *
  * @author Brendon.Moore
  */
 public class GameControl {
+    
+   
 
     public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame stub function called ***"); 
+        Game game = new Game();
+    JosephofEgypt.setCurrentGame(game);
+    game.setPlayer(player);
+    InventoryItem[] inventoryList = GameControl.createInventoryList();
+    game.setInventory(inventoryList);
+    Pyramid pyramid = new Pyramid();
+    game.setPyramid(pyramid);
+    Wagon wagon = new Wagon();
+    game.setWagon(wagon);
+    Map map = MapControl.createMap();
+    game.setMap(map);
+    MapControl.moveActorsToStartingLocation(map);
+    
     }
     
     public static void openSavedGame(Game currentGame){
@@ -54,6 +73,10 @@ public class GameControl {
     public static void moveMountain() {
         System.out.println("\n*** moveMountain stub function called ***"); 
 }
+
+    private static InventoryItem[] createInventoryList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

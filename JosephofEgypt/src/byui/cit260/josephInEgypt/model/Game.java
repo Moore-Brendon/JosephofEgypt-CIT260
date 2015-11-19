@@ -18,7 +18,63 @@ public class Game {
     private int noOfMen;    //How many men would be assigned to work?
     private int noOfWagons;//How many wagons will be assigned to work on this project? or would we want to construct it?
     private long totalTime;
-    private int savedGame;
+    private int savedGame;       
+    private Map map;
+    private Player player;
+    private InventoryItem[] inventory;
+    private Actor[] actor;
+    private Wagon[] wagon;
+    private Pyramid pyramid;
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+
+    public Wagon[] getWagon() {
+        return wagon;
+    }
+
+    public void setWagon(Wagon[] wagon) {
+        this.wagon = wagon;
+    }
+
+    public Pyramid getPyramid() {
+        return pyramid;
+    }
+
+    public void setPyramid(Pyramid pyramid) {
+        this.pyramid = pyramid;
+    }
+    
+    
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
     public Game() {
     }
     public long savedGame(){
@@ -107,6 +163,10 @@ public class Game {
     @Override
     public String toString() {
         return "Game{" + "noPeople=" + noPeople + ", totalHarvestInPounds=" + totalHarvestInPounds + ", noOfMen=" + noOfMen + ", noOfWagons=" + noOfWagons + ", totalTime=" + totalTime + '}';
+    }
+
+    public void setWagon(Wagon wagon) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

@@ -5,6 +5,8 @@
  */
 package byui.cit260.josephInEgypt.model;
 
+import java.awt.Point;
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -12,72 +14,49 @@ import java.util.Objects;
  * @author User
  * This is a test of Github
  */
-public class Actor {
+public enum Actor implements Serializable{
     
-    private String name;
-    private String description;
-    private int coordinates;
+    Joseph("He is the leader of the project"),
+    Pharaoh("He is the ruler and owner of all Egypt"),
+    Malaky("Resource officer"),
+    Boze("Harvest officer"),
+    Manassah("Storage officer"),
+    Lord("THE LORD");
+    
+    
+            
+   
+    private final String description;
+    private final Point coordinates;
 
-    public Actor() {
+    Actor(String description) {
+
+        this.description = description;
+           coordinates = new Point(1,1);
+            
+
     }
     
-    public String getName() {
-        return name;
-    }
+  
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
+  
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getCoordinates() {
+  
+    public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(int coordinates) {
-        this.coordinates = coordinates;
-    }
+ 
+  
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + Objects.hashCode(this.description);
-        hash = 29 * hash + this.coordinates;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (this.coordinates != other.coordinates) {
-            return false;
-        }
-        return true;
-    }
+   
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + '}';
+        return "Actor{"   + ", description=" + description + ", coordinates=" + coordinates + '}';
     }
     
     

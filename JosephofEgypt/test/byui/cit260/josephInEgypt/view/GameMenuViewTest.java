@@ -28,6 +28,7 @@ public class GameMenuViewTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
+    
 
     /**
      * Test of doAction method, of class GameMenuView.
