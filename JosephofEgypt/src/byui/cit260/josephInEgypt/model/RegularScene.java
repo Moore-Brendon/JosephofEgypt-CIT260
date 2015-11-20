@@ -92,6 +92,10 @@ public class RegularScene {
     public String toString() {
         return "RegularScene{" + "description=" + description + ", traveTime=" + traveTime + ", resourceType=" + resourceType + ", amountAvailable=" + amountAvailable + '}';
     }
+
+    public void setTravelTime(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

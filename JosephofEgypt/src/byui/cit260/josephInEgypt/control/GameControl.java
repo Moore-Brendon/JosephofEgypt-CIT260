@@ -12,6 +12,8 @@ import byui.cit260.josephInEgypt.model.InventoryItem;
 import byui.cit260.josephInEgypt.model.Item;
 import byui.cit260.josephInEgypt.model.Map;
 import byui.cit260.josephInEgypt.model.Pyramid;
+import byui.cit260.josephInEgypt.model.RegularScene;
+import byui.cit260.josephInEgypt.model.SceneType;
 import byui.cit260.josephInEgypt.model.Wagon;
 
 /**
@@ -132,7 +134,21 @@ public class GameControl {
         
     }
     
-    
+    private static RegularScene[] createScenes(){
+        
+        Game game = JosephofEgypt.getCurrentGame();
+        
+        RegularScene[] scenes = new RegularScene[SceneType.values().length];
+        
+        RegularScene startingScene= new RegularScene();
+        startingScene.setDescription("\nJoseph has seven years to prepare for the famine");
+        startingScene.setTravelTime(0);
+        scenes[SceneType.start.ordinal()] = startingScene;
+        return scenes;
+        
+        
+        
+    }
     
     
 }
