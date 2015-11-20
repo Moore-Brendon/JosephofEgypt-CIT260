@@ -10,6 +10,7 @@ import byui.cit260.josephInEgypt.model.Player;
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
 import byui.cit260.josephInEgypt.model.Item;
+import byui.cit260.josephInEgypt.model.Location;
 import byui.cit260.josephInEgypt.model.Map;
 import byui.cit260.josephInEgypt.model.Pyramid;
 import byui.cit260.josephInEgypt.model.RegularScene;
@@ -82,49 +83,49 @@ public class GameControl {
         InventoryItem[] inventory = new InventoryItem[8];
         
         InventoryItem wood = new InventoryItem();
-        wood.setDescription("wood");
+        wood.setDescription("Wood");
         wood.setQuantityInStock(0);
         wood.setRequiredAmounts(0);
         inventory[Item.wood.ordinal()] = wood;
         
          InventoryItem ore = new InventoryItem();
-        ore.setDescription("ore");
+        ore.setDescription("Ore");
         ore.setQuantityInStock(0);
         ore.setRequiredAmounts(0);
         inventory[Item.wood.ordinal()] = ore;
         
          InventoryItem grain = new InventoryItem();
-        grain.setDescription("grain");
+        grain.setDescription("Grain");
         grain.setQuantityInStock(0);
         grain.setRequiredAmounts(0);
         inventory[Item.grain.ordinal()] = grain;
         
          InventoryItem hammer = new InventoryItem();
-        hammer.setDescription("hammer");
+        hammer.setDescription("Hammer");
         hammer.setQuantityInStock(0);
         hammer.setRequiredAmounts(0);
         inventory[Item.hammer.ordinal()] = hammer;
         
          InventoryItem chisel = new InventoryItem();
-        chisel.setDescription("chisel");
+        chisel.setDescription("Chisel");
         chisel.setQuantityInStock(0);
         chisel.setRequiredAmounts(0);
         inventory[Item.chisel.ordinal()] = chisel;
         
          InventoryItem saw = new InventoryItem();
-        saw.setDescription("saw");
+        saw.setDescription("Saw");
         saw.setQuantityInStock(0);
         saw.setRequiredAmounts(0);
         inventory[Item.saw.ordinal()] = saw;
         
          InventoryItem carts = new InventoryItem();
-        carts.setDescription("carts");
+        carts.setDescription("Carts");
         carts.setQuantityInStock(0);
         carts.setRequiredAmounts(0);
         inventory[Item.carts.ordinal()] = carts;
         
          InventoryItem barrels = new InventoryItem();
-        barrels.setDescription("barrels");
+        barrels.setDescription("Barrels");
         barrels.setQuantityInStock(0);
         barrels.setRequiredAmounts(0);
         inventory[Item.barrels.ordinal()] = barrels;
@@ -142,13 +143,89 @@ public class GameControl {
         
         RegularScene startingScene= new RegularScene();
         startingScene.setDescription("\nJoseph has seven years to prepare for the famine");
-        startingScene.setTravelTime(0);
+        startingScene.setMapSymbol("ST");
+        startingScene.setBlocked(false);
+        startingScene.setTravelTime(240);
         scenes[SceneType.start.ordinal()] = startingScene;
+        
+        RegularScene mountainScene= new RegularScene();
+        mountainScene.setDescription("\nYou have arrived at the top of the mountain where you can recieve help from the Lord");
+        mountainScene.setMapSymbol("MT");
+        mountainScene.setBlocked(false);
+        mountainScene.setTravelTime(200);
+        scenes[SceneType.mountain.ordinal()] = mountainScene;
+        
+        RegularScene resourceScene= new RegularScene();
+        resourceScene.setDescription("\nHere you can mine ore and manage our labor forces.");
+        resourceScene.setMapSymbol("RS");
+        resourceScene.setBlocked(false);
+        resourceScene.setTravelTime(300);
+        scenes[SceneType.resource.ordinal()] = resourceScene;
+            
+        RegularScene storageScene= new RegularScene();
+        storageScene.setDescription("\nThis is where you are able to store your grain.");
+        storageScene.setMapSymbol("ST");
+        storageScene.setBlocked(false);
+        storageScene.setTravelTime(300);
+        scenes[SceneType.storage.ordinal()] = storageScene;
+        
+        RegularScene regularScene= new RegularScene();
+        regularScene.setDescription("\nSelect your next plan of action.");
+        regularScene.setMapSymbol("RG");
+        regularScene.setBlocked(false);
+        regularScene.setTravelTime(300);
+        scenes[SceneType.regular.ordinal()] = regularScene;
+        
+        RegularScene finishScene= new RegularScene();
+        finishScene.setDescription("\nYou did it! You prepared enough food to survive the famine.");
+        finishScene.setMapSymbol("FS");
+        finishScene.setBlocked(false);
+        finishScene.setTravelTime((int) Double.POSITIVE_INFINITY);
+        scenes[SceneType.finish.ordinal()] = finishScene;
+        
         return scenes;
         
+    }
+    
+    private static void assignScenesToLoactions(Map map, RegularScene[] scenes) {
+        Location[][] locations = map.getLocations();
         
+        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.resource.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.storage.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.regular.ordinal()]);
+        locations[0][5].setScene(scenes[SceneType.finish.ordinal()]);
+        
+        
+       
+
         
     }
+
+    public static void assignScenesToLocations(Map map, RegularScene[] scenes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static InventoryItem[] getSortedInventoryList() {
+        InventoryItem[] originalInventoryList =
+                JosephofEgypt.getCurrentGame().getInventory();
+        
+        InventoryItem[] inventoryList = originalInventoryList.clone();
+        InventoryItem tempInventoryItem;
+        
+        for (int i = 1; i< inventoryList.length; i++){
+            for(int j = i ; j>0; j--){
+                if(inventoryList[j-1].getDescription().compareToIgnoreCase(inventoryList[j].getDescription()) > 0){
+                    tempInventoryItem = inventoryList[j];
+                    inventoryList[j] = inventoryList[j-1];
+                    inventoryList[j-1] = tempInventoryItem;
+                }
+            }
+        }
+        return inventoryList;
+        }
+    
     
     
 }

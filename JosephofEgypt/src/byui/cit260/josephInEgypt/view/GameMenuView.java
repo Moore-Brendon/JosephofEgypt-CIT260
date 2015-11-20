@@ -5,8 +5,11 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import byui.cit260.josephInEgypt.control.GameControl;
 import byui.cit260.josephInEgypt.control.HarvestControl;
 import byui.cit260.josephInEgypt.control.InventoryControl;
+import byui.cit260.josephInEgypt.model.InventoryItem;
+import byui.cit260.josephInEgypt.model.Location;
 import java.util.Scanner;
 
 /**
@@ -14,6 +17,7 @@ import java.util.Scanner;
  * @author User
  */
 public class GameMenuView extends View{
+    private Object map;
     public GameMenuView(){
      super("\n"
             + "\n----------------------------"
@@ -168,13 +172,44 @@ public class GameMenuView extends View{
     }
 
     private void viewGameMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        Location[][] locations = map.getLocations();
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
 
     private void showCurrentInventory() {
-        InventoryMenuView inventory = new InventoryMenuView();
-        inventory.display();
-    }
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        System.out.println("\nList of Inventory Items");
+        System.out.println("Description" + "\t" +
+                            "Required" + "\t" +
+                            "In Stock");
+       for (InventoryItem inventoryItem : inventory) {
+            System.out.println(inventoryItem.getDescription() + "\t   " +
+                                inventoryItem.getRequiredAmount() + "\t    " +
+                                inventoryItem.getQuantityInStock());
+}
+}
 
     private void HarvestResource() {
     

@@ -69,6 +69,14 @@ public class Location {
     public String toString() {
         return "Location{" + "column=" + column + ", row=" + row + '}';
     }
+
+    void setVisited(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setScene(RegularScene scene) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
             

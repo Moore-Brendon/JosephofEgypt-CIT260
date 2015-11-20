@@ -5,6 +5,8 @@
  */
 package byui.cit260.josephInEgypt.model;
 
+import byui.cit260.josephInEgypt.control.GameControl;
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -12,13 +14,23 @@ import java.util.Objects;
  * 
  * @author User
  */
-public class Map {
+public class Map implements Serializable {
+
+    private static RegularScene[] createScenes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     private int rowCount;
     private int columnCount;
     private Location [][] locations;
 
     public Map() {
+    }
+    private static Map createMap(){
+        Map map = new Map(20, 20);
+        RegularScene[] scenes = createScenes();
+        GameControl.assignScenesToLocations(map, scenes);
+        return map;
     }
     public Map(int noOfRows,int noOfColumns){
     
@@ -37,7 +49,7 @@ public class Map {
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
-                
+                location.setVisited(false);
                 locations[row][column] = location;
                 
                 
@@ -90,6 +102,12 @@ public class Map {
     public String toString() {
         return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
     }
+
+    public Location[][] getLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 
     
 }

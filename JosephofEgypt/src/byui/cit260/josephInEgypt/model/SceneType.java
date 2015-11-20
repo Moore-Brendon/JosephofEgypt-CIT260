@@ -11,6 +11,11 @@ package byui.cit260.josephInEgypt.model;
  */
 public enum SceneType {
     
-    start;
-    
+    start,
+    mountain,
+    resource,
+    storage,
+    regular,
+    finish,
+
 }
