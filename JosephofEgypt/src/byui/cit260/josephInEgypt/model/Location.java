@@ -5,6 +5,9 @@
  */
 package byui.cit260.josephInEgypt.model;
 
+import java.util.ArrayList;
+import javafx.scene.Scene;
+
 /**
  *
  * 
@@ -13,6 +16,9 @@ package byui.cit260.josephInEgypt.model;
 public class Location {
     private int column;
     private int row;
+    private Scene scene;
+    private ArrayList < Actor > actors;
+    
 
     public Location() {
     }

@@ -14,14 +14,23 @@ import java.io.Serializable;
  */
 public class Pyramid implements Serializable{
 
-    public Pyramid() {
-    }
+   
     
     private double length;
     private double width;
     private double height;
     private double volume;
+    private final String description;
 
+     public Pyramid() {
+         
+         this.description = "\nThis Pyramid will save Egypt from the famine";
+         this.width = 0;
+         this.height = 0;
+         this.volume = 0;
+         this.length = 0;
+         
+    }
     public double getLength() {
         return length;
     }

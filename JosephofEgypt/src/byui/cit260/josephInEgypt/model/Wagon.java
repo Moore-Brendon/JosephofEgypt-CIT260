@@ -14,13 +14,23 @@ import java.io.Serializable;
  */
 public class Wagon implements Serializable{
 
-    public Wagon() {
-    }
+   
     
     
     private double maxWeight;
     private double amountLoaded;
     private double loadedWeight;
+    
+    
+     public Wagon() {
+         
+         this.amountLoaded = 0;
+         this.maxWeight = 0;
+         this.loadedWeight = 0;
+         
+    }
+    
+    
 
     public double getMaxWeight() {
         return maxWeight;

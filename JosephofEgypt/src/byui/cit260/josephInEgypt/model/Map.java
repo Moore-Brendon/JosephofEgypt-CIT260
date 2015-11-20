@@ -14,23 +14,49 @@ import java.util.Objects;
  */
 public class Map {
     
-    private String rowCount;
-    private String columnCount;
+    private int rowCount;
+    private int columnCount;
+    private Location [][] locations;
 
     public Map() {
     }
+    public Map(int noOfRows,int noOfColumns){
+    
+        if(noOfRows < 1 || noOfColumns < 1){
+            System.out.println("the number of rows and columns must be grater than zero");
+            return;
+            
+        }
+            this.columnCount = noOfColumns;
+            this.rowCount = noOfRows;
+            this.locations = new Location[noOfRows][noOfColumns];
+            for(int row = 0; row< noOfRows; row++ ){
+                for(int column = 0; column < noOfColumns; column++){                                  
+                
+                
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                
+                locations[row][column] = location;
+                
+                
+                
+             }
+          }
+    }
        
-    public String getColumnCount() {
+    public int getColumnCount() {
         return columnCount;
     }
-    public void setColumnCount(String columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
 
-    public String getRowCount() {
+    public int getRowCount() {
         return rowCount;
     }
-    public void setRowCount(String rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 

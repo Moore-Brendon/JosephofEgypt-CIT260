@@ -9,6 +9,7 @@ import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.model.Player;
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
+import byui.cit260.josephInEgypt.model.Item;
 import byui.cit260.josephInEgypt.model.Map;
 import byui.cit260.josephInEgypt.model.Pyramid;
 import byui.cit260.josephInEgypt.model.Wagon;
@@ -75,7 +76,60 @@ public class GameControl {
 }
 
     private static InventoryItem[] createInventoryList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        InventoryItem[] inventory = new InventoryItem[8];
+        
+        InventoryItem wood = new InventoryItem();
+        wood.setDescription("wood");
+        wood.setQuantityInStock(0);
+        wood.setRequiredAmounts(0);
+        inventory[Item.wood.ordinal()] = wood;
+        
+         InventoryItem ore = new InventoryItem();
+        ore.setDescription("ore");
+        ore.setQuantityInStock(0);
+        ore.setRequiredAmounts(0);
+        inventory[Item.wood.ordinal()] = ore;
+        
+         InventoryItem grain = new InventoryItem();
+        grain.setDescription("grain");
+        grain.setQuantityInStock(0);
+        grain.setRequiredAmounts(0);
+        inventory[Item.grain.ordinal()] = grain;
+        
+         InventoryItem hammer = new InventoryItem();
+        hammer.setDescription("hammer");
+        hammer.setQuantityInStock(0);
+        hammer.setRequiredAmounts(0);
+        inventory[Item.hammer.ordinal()] = hammer;
+        
+         InventoryItem chisel = new InventoryItem();
+        chisel.setDescription("chisel");
+        chisel.setQuantityInStock(0);
+        chisel.setRequiredAmounts(0);
+        inventory[Item.chisel.ordinal()] = chisel;
+        
+         InventoryItem saw = new InventoryItem();
+        saw.setDescription("saw");
+        saw.setQuantityInStock(0);
+        saw.setRequiredAmounts(0);
+        inventory[Item.saw.ordinal()] = saw;
+        
+         InventoryItem carts = new InventoryItem();
+        carts.setDescription("carts");
+        carts.setQuantityInStock(0);
+        carts.setRequiredAmounts(0);
+        inventory[Item.carts.ordinal()] = carts;
+        
+         InventoryItem barrels = new InventoryItem();
+        barrels.setDescription("barrels");
+        barrels.setQuantityInStock(0);
+        barrels.setRequiredAmounts(0);
+        inventory[Item.barrels.ordinal()] = barrels;
+        return inventory;
+        
+        
+        
     }
     
     
