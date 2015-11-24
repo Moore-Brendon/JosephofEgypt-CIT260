@@ -154,7 +154,28 @@ public class GameControl {
         }
         return inventoryList;
         }
-    
+     public static String getBarrelTotal() {
+        InventoryItem[] originalInventoryList =
+                JosephofEgypt.getCurrentGame().getInventory();
+        
+        InventoryItem[] inventoryList = originalInventoryList.clone();
+        
+        double quantity = 0;
+        double required = 0;
+        double volume = 0;
+        String returnString;
+        for (int i = 1; i< inventoryList.length; i++){
+            
+                if("Barrels".equals(inventoryList[i].getDescription())){
+                    quantity = inventoryList[i].getQuantityInStock();
+                    required = inventoryList[i].getRequiredAmount();
+                    volume = quantity * 35;
+                }
+            
+        }
+        returnString = "You currently have " + quantity + " barrels which equates " + volume + " pounds of grain. You still need " + required + ".";
+        return returnString;
+    }
         static void assignScenesToLocations(Map map, RegularScene[] scenes) {
         Location[][] locations = map.getLocations();
         
