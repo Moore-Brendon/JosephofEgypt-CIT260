@@ -16,22 +16,13 @@ import java.util.Objects;
  */
 public class Map implements Serializable {
 
-    private static RegularScene[] createScenes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     private int rowCount;
     private int columnCount;
     private Location [][] locations;
 
     public Map() {
     }
-    private static Map createMap(){
-        Map map = new Map(20, 20);
-        RegularScene[] scenes = createScenes();
-        GameControl.assignScenesToLocations(map, scenes);
-        return map;
-    }
+    
     public Map(int noOfRows,int noOfColumns){
     
         if(noOfRows < 1 || noOfColumns < 1){
@@ -104,7 +95,9 @@ public class Map implements Serializable {
     }
 
     public Location[][] getLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return locations;
+        
     }
 
     

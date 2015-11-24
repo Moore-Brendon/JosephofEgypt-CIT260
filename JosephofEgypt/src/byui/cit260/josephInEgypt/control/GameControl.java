@@ -130,84 +130,11 @@ public class GameControl {
         barrels.setRequiredAmounts(0);
         inventory[Item.barrels.ordinal()] = barrels;
         return inventory;
-        
-        
-        
+             
     }
-    
-    private static RegularScene[] createScenes(){
-        
-        Game game = JosephofEgypt.getCurrentGame();
-        
-        RegularScene[] scenes = new RegularScene[SceneType.values().length];
-        
-        RegularScene startingScene= new RegularScene();
-        startingScene.setDescription("\nJoseph has seven years to prepare for the famine");
-        startingScene.setMapSymbol("ST");
-        startingScene.setBlocked(false);
-        startingScene.setTravelTime(240);
-        scenes[SceneType.start.ordinal()] = startingScene;
-        
-        RegularScene mountainScene= new RegularScene();
-        mountainScene.setDescription("\nYou have arrived at the top of the mountain where you can recieve help from the Lord");
-        mountainScene.setMapSymbol("MT");
-        mountainScene.setBlocked(false);
-        mountainScene.setTravelTime(200);
-        scenes[SceneType.mountain.ordinal()] = mountainScene;
-        
-        RegularScene resourceScene= new RegularScene();
-        resourceScene.setDescription("\nHere you can mine ore and manage our labor forces.");
-        resourceScene.setMapSymbol("RS");
-        resourceScene.setBlocked(false);
-        resourceScene.setTravelTime(300);
-        scenes[SceneType.resource.ordinal()] = resourceScene;
-            
-        RegularScene storageScene= new RegularScene();
-        storageScene.setDescription("\nThis is where you are able to store your grain.");
-        storageScene.setMapSymbol("ST");
-        storageScene.setBlocked(false);
-        storageScene.setTravelTime(300);
-        scenes[SceneType.storage.ordinal()] = storageScene;
-        
-        RegularScene regularScene= new RegularScene();
-        regularScene.setDescription("\nSelect your next plan of action.");
-        regularScene.setMapSymbol("RG");
-        regularScene.setBlocked(false);
-        regularScene.setTravelTime(300);
-        scenes[SceneType.regular.ordinal()] = regularScene;
-        
-        RegularScene finishScene= new RegularScene();
-        finishScene.setDescription("\nYou did it! You prepared enough food to survive the famine.");
-        finishScene.setMapSymbol("FS");
-        finishScene.setBlocked(false);
-        finishScene.setTravelTime((int) Double.POSITIVE_INFINITY);
-        scenes[SceneType.finish.ordinal()] = finishScene;
-        
-        return scenes;
-        
-    }
-    
-    private static void assignScenesToLoactions(Map map, RegularScene[] scenes) {
-        Location[][] locations = map.getLocations();
-        
-        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
-        locations[0][1].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[0][2].setScene(scenes[SceneType.resource.ordinal()]);
-        locations[0][3].setScene(scenes[SceneType.storage.ordinal()]);
-        locations[0][4].setScene(scenes[SceneType.regular.ordinal()]);
-        locations[0][5].setScene(scenes[SceneType.finish.ordinal()]);
-        
-        
        
-
-        
-    }
-
-    public static void assignScenesToLocations(Map map, RegularScene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static InventoryItem[] getSortedInventoryList() {
+    
+          public static InventoryItem[] getSortedInventoryList() {
         InventoryItem[] originalInventoryList =
                 JosephofEgypt.getCurrentGame().getInventory();
         
@@ -226,6 +153,21 @@ public class GameControl {
         return inventoryList;
         }
     
+        static void assignScenesToLocations(Map map, RegularScene[] scenes) {
+        Location[][] locations = map.getLocations();
+        
+        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.resource.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.storage.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.regular.ordinal()]);
+        locations[0][5].setScene(scenes[SceneType.finish.ordinal()]);
+        
+        
+       
+
+        
+    }
     
     
 }

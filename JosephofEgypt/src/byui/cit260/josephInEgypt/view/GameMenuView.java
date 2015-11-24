@@ -8,8 +8,10 @@ package byui.cit260.josephInEgypt.view;
 import byui.cit260.josephInEgypt.control.GameControl;
 import byui.cit260.josephInEgypt.control.HarvestControl;
 import byui.cit260.josephInEgypt.control.InventoryControl;
+import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
 import byui.cit260.josephInEgypt.model.Location;
+import byui.cit260.josephInEgypt.model.Map;
 import java.util.Scanner;
 
 /**
@@ -17,7 +19,9 @@ import java.util.Scanner;
  * @author User
  */
 public class GameMenuView extends View{
-    private Object map;
+    
+    
+       
     public GameMenuView(){
      super("\n"
             + "\n----------------------------"
@@ -37,7 +41,9 @@ public class GameMenuView extends View{
             + "\nE - Exit "
             + "\n----------------------------");
 }
-            
+         
+    
+    
     
    @Override
     
@@ -171,32 +177,12 @@ public class GameMenuView extends View{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void viewGameMap() {
+    public void viewGameMap(Map map) {
+          Location[][] locations = map.getLocations();
         
-        Location[][] locations = map.getLocations();
-        
+      
+    }  
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    }
 
     private void showCurrentInventory() {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
@@ -340,4 +326,6 @@ public class GameMenuView extends View{
         InventoryControl.savePyramid();
         this.display();
     }
+
+   
 }
