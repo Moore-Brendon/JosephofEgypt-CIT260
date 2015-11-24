@@ -24,7 +24,7 @@ import byui.cit260.josephInEgypt.model.Wagon;
 public class GameControl {
     
    
-
+    public static Map map;
     public static void createNewGame(Player player) {
         Game game = new Game();
     JosephofEgypt.setCurrentGame(game);
@@ -35,12 +35,14 @@ public class GameControl {
     game.setPyramid(pyramid);
     Wagon wagon = new Wagon();
     game.setWagon(wagon);
-    Map map = MapControl.createMap();
+     map = MapControl.createMap();
     game.setMap(map);
     MapControl.moveActorsToStartingLocation(map);
     
     }
-    
+    public Map regreso(){
+        return map;
+    }
     public static void openSavedGame(Game currentGame){
         System.out.println("\n*** openSavedGame stub function called ***"); 
 

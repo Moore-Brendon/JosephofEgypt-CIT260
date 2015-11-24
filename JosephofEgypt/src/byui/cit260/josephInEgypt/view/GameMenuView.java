@@ -8,6 +8,7 @@ package byui.cit260.josephInEgypt.view;
 import byui.cit260.josephInEgypt.control.GameControl;
 import byui.cit260.josephInEgypt.control.HarvestControl;
 import byui.cit260.josephInEgypt.control.InventoryControl;
+
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
 import byui.cit260.josephInEgypt.model.Location;
@@ -82,7 +83,7 @@ public class GameMenuView extends View{
                 this.deliverGoods();
                 break;
             case 'V':
-                this.viewGameMap();
+                this.viewGameMap(GameControl.map);
                 break;
             case 'I':
                 this.showCurrentInventory();

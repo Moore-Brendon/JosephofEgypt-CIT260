@@ -17,14 +17,17 @@ import byui.cit260.josephInEgypt.model.SceneType;
  * @author juan
  */
 class MapControl {
+     public static   Map map;
 
     static Map createMap() {
-        Map map = new Map(20, 20);
+        map = new Map(20, 20);
         RegularScene[] scenes = createScenes();
         GameControl.assignScenesToLocations(map, scenes);
         return map;
     }
-    
+    public Map regresar(){
+        return map;
+    }
 
     static void moveActorsToStartingLocation(Map map) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
