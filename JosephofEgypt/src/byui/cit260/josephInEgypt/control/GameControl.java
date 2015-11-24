@@ -94,7 +94,7 @@ public class GameControl {
         ore.setDescription("Ore");
         ore.setQuantityInStock(0);
         ore.setRequiredAmounts(0);
-        inventory[Item.wood.ordinal()] = ore;
+        inventory[Item.ore.ordinal()] = ore;
         
          InventoryItem grain = new InventoryItem();
         grain.setDescription("Grain");
