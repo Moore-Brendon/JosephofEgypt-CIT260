@@ -6,11 +6,14 @@
 package byui.cit260.josephInEgypt.control;
 
 import JosephofEgypt.JosephofEgypt;
+import byui.cit260.josephInEgypt.exceptions.MapControlExceptions;
+import byui.cit260.josephInEgypt.model.Actor;
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.Location;
 import byui.cit260.josephInEgypt.model.Map;
 import byui.cit260.josephInEgypt.model.RegularScene;
 import byui.cit260.josephInEgypt.model.SceneType;
+import java.awt.Point;
 
 /**
  *
@@ -29,8 +32,16 @@ class MapControl {
         return map;
     }
 
-    static void moveActorsToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    static void moveActorsToStartingLocation(Map map) throws MapControlExceptions {
+        Actor[] actors = Actor.values();
+        
+        for (Actor actor : actors ) {
+            Point coordinates = actor.getCoordinates();
+            MapControl.moveActorToLocation(actor, coordinates);
+            }
+        
+
+
     }
     
     private static RegularScene[] createScenes(){
@@ -85,6 +96,20 @@ class MapControl {
         
     }
         
-    
+    public static void moveActorToLocation(Actor actor, Point coordinates) throws MapControlExceptions{
+        
+        Map map = JosephofEgypt.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        if (newRow <0 || newRow >= map.getNoOfRows() ||
+                newColumn <0 || newColumn >= map.getNoOfColumns()) {
+            throw new MapControlExceptions("Can not move actor to location "
+                                            + coordinates.x + ", " + coordinates.y
+                                            + " because that location is outside "
+                                            + " the bounds of the map.");
+            
+        }
+        
+    }
     
 }

@@ -6,6 +6,7 @@
 package byui.cit260.josephInEgypt.control;
 
 import JosephofEgypt.JosephofEgypt;
+import byui.cit260.josephInEgypt.exceptions.MapControlExceptions;
 import byui.cit260.josephInEgypt.model.Player;
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
@@ -25,7 +26,7 @@ public class GameControl {
     
    
     public static Map map;
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws MapControlExceptions {
         Game game = new Game();
     JosephofEgypt.setCurrentGame(game);
     game.setPlayer(player);

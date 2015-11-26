@@ -7,8 +7,11 @@ package byui.cit260.josephInEgypt.view;
 
 import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.control.GameControl;
+import byui.cit260.josephInEgypt.exceptions.MapControlExceptions;
 import byui.cit260.josephInEgypt.view.GameMenuView;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -43,7 +46,12 @@ public class MainMenuView extends View {
   
             
             case 'N':
+        {
+            try {
                 this.startNewGame();
+            } catch (MapControlExceptions ex) {
+                System.out.println(ex.getMessage());            }
+        }
                 break;
             case 'G':
                 this.startExistingGame();
@@ -64,7 +72,7 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlExceptions {
         GameControl.createNewGame(JosephofEgypt.getPlayer());
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
