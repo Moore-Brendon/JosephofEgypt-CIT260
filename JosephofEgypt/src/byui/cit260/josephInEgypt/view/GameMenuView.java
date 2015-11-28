@@ -8,12 +8,15 @@ package byui.cit260.josephInEgypt.view;
 import byui.cit260.josephInEgypt.control.GameControl;
 import byui.cit260.josephInEgypt.control.HarvestControl;
 import byui.cit260.josephInEgypt.control.InventoryControl;
+import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
 
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
 import byui.cit260.josephInEgypt.model.Location;
 import byui.cit260.josephInEgypt.model.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -62,10 +65,21 @@ public class GameMenuView extends View{
                 this.exploreLocation();
                 break;
             case 'C':
+        {
+            try {
                 this.calculateHarvest();
+            } catch (InventoryControlExceptions me) {
+                System.out.println(me.getMessage());
+            }
+        }
                 break;
             case 'P':
+        {
+            try {
                 this.constructPyramid();
+            } catch (InventoryControlExceptions me) {
+                System.out.println(me.getMessage());            }
+        }
                 break;
             case 'T':
                 this.constructTools();
@@ -115,7 +129,7 @@ public class GameMenuView extends View{
         */
     }
 
-    private void calculateHarvest() {
+    private void calculateHarvest() throws InventoryControlExceptions {
         // display banner instructing user what to do
         System.out.println("\nTo calculate harvest several values must be known"
                 + "\nthe daily ingest number and the number of people"
@@ -135,7 +149,7 @@ public class GameMenuView extends View{
         this.display();
     }
 
-    private void constructPyramid() {
+    private void constructPyramid() throws InventoryControlExceptions {
       //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
         System.out.println( "\n"
@@ -318,7 +332,7 @@ public class GameMenuView extends View{
             }
         return input;
     }
-    public double doPAction(double length, double width, double height) {
+    public double doPAction(double length, double width, double height) throws InventoryControlExceptions {
        InventoryControl inventoryControl = new InventoryControl();
        double volume = inventoryControl.calcDesignPyramid (length, width, height);
        return volume;

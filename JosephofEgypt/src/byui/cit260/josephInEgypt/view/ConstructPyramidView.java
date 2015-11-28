@@ -6,6 +6,7 @@
 package byui.cit260.josephInEgypt.view;
 
 import byui.cit260.josephInEgypt.control.InventoryControl;
+import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
 import byui.cit260.josephInEgypt.model.GameMenuView;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class ConstructPyramidView {
           
             
     
-    public void displayMenu(){
+    public void displayMenu() throws InventoryControlExceptions{
         double length;
 	double width;
 	double height;
@@ -90,7 +91,7 @@ public class ConstructPyramidView {
         return input;
         }
     
-    public double doAction(double length, double width, double height) {
+    public double doAction(double length, double width, double height) throws InventoryControlExceptions {
        InventoryControl inventoryControl = new InventoryControl();
        double volume = inventoryControl.calcDesignPyramid (length, width, height);
        return volume;
