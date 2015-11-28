@@ -6,6 +6,7 @@
 package byui.cit260.josephInEgypt.control;
 
 import JosephofEgypt.JosephofEgypt;
+import byui.cit260.josephInEgypt.model.Actor;
 import byui.cit260.josephInEgypt.model.Player;
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
@@ -35,8 +36,9 @@ public class GameControl {
     game.setPyramid(pyramid);
     Wagon wagon = new Wagon();
     game.setWagon(wagon);
-     map = MapControl.createMap();
+    map = MapControl.createMap();
     game.setMap(map);
+    Actor[] actors = new Actor[6];
     MapControl.moveActorsToStartingLocation(map);
     
     }
@@ -85,49 +87,49 @@ public class GameControl {
         InventoryItem[] inventory = new InventoryItem[8];
         
         InventoryItem wood = new InventoryItem();
-        wood.setDescription("Wood");
+        wood.setInventoryItem("Wood");
         wood.setQuantityInStock(0);
         wood.setRequiredAmounts(0);
         inventory[Item.wood.ordinal()] = wood;
         
          InventoryItem ore = new InventoryItem();
-        ore.setDescription("Ore");
+        ore.setInventoryItem("Ore");
         ore.setQuantityInStock(0);
         ore.setRequiredAmounts(0);
         inventory[Item.ore.ordinal()] = ore;
         
          InventoryItem grain = new InventoryItem();
-        grain.setDescription("Grain");
+        grain.setInventoryItem("Grain");
         grain.setQuantityInStock(0);
         grain.setRequiredAmounts(0);
         inventory[Item.grain.ordinal()] = grain;
         
          InventoryItem hammer = new InventoryItem();
-        hammer.setDescription("Hammer");
+        hammer.setInventoryItem("Hammer");
         hammer.setQuantityInStock(0);
         hammer.setRequiredAmounts(0);
         inventory[Item.hammer.ordinal()] = hammer;
         
          InventoryItem chisel = new InventoryItem();
-        chisel.setDescription("Chisel");
+        chisel.setInventoryItem("Chisel");
         chisel.setQuantityInStock(0);
         chisel.setRequiredAmounts(0);
         inventory[Item.chisel.ordinal()] = chisel;
         
          InventoryItem saw = new InventoryItem();
-        saw.setDescription("Saw");
+        saw.setInventoryItem("Saw");
         saw.setQuantityInStock(0);
         saw.setRequiredAmounts(0);
         inventory[Item.saw.ordinal()] = saw;
         
          InventoryItem carts = new InventoryItem();
-        carts.setDescription("Carts");
+        carts.setInventoryItem("Carts");
         carts.setQuantityInStock(0);
         carts.setRequiredAmounts(0);
         inventory[Item.carts.ordinal()] = carts;
         
          InventoryItem barrels = new InventoryItem();
-        barrels.setDescription("Barrels");
+        barrels.setInventoryItem("Barrels");
         barrels.setQuantityInStock(0);
         barrels.setRequiredAmounts(0);
         inventory[Item.barrels.ordinal()] = barrels;
@@ -145,7 +147,7 @@ public class GameControl {
         
         for (int i = 1; i< inventoryList.length; i++){
             for(int j = i ; j>0; j--){
-                if(inventoryList[j-1].getDescription().compareToIgnoreCase(inventoryList[j].getDescription()) > 0){
+                if(inventoryList[j-1].getInventoryItem().compareToIgnoreCase(inventoryList[j].getInventoryItem()) > 0){
                     tempInventoryItem = inventoryList[j];
                     inventoryList[j] = inventoryList[j-1];
                     inventoryList[j-1] = tempInventoryItem;
@@ -166,7 +168,7 @@ public class GameControl {
         String returnString;
         for (int i = 1; i< inventoryList.length; i++){
             
-                if("Barrels".equals(inventoryList[i].getDescription())){
+                if("Barrels".equals(inventoryList[i].getInventoryItem())){
                     quantity = inventoryList[i].getQuantityInStock();
                     required = inventoryList[i].getRequiredAmount();
                     volume = quantity * 35;

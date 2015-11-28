@@ -23,7 +23,7 @@ public class Game {
     private Player player;
     private InventoryItem[] inventory;
     private Actor[] actor;
-    private Wagon[] wagon;
+    private Wagon wagon;
     private Pyramid pyramid;
 
     public InventoryItem[] getInventory() {
@@ -42,11 +42,11 @@ public class Game {
         this.actor = actor;
     }
 
-    public Wagon[] getWagon() {
+    public Wagon getWagon() {
         return wagon;
     }
 
-    public void setWagon(Wagon[] wagon) {
+    public void setWagon(Wagon wagon) {
         this.wagon = wagon;
     }
 
@@ -165,9 +165,7 @@ public class Game {
         return "Game{" + "noPeople=" + noPeople + ", totalHarvestInPounds=" + totalHarvestInPounds + ", noOfMen=" + noOfMen + ", noOfWagons=" + noOfWagons + ", totalTime=" + totalTime + '}';
     }
 
-    public void setWagon(Wagon wagon) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     
 

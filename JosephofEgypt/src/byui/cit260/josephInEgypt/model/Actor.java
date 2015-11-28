@@ -15,13 +15,13 @@ import java.util.Objects;
  * This is a test of Github
  */
 public enum Actor implements Serializable{
-    
-    Joseph("He is the leader of the project"),
-    Pharaoh("He is the ruler and owner of all Egypt"),
-    Malaky("Resource officer"),
-    Boze("Harvest officer"),
-    Manassah("Storage officer"),
-    Lord("THE LORD");
+    //assign correct coordinates to actors
+    Joseph("He is the leader of the project",2,3),
+    Pharaoh("He is the ruler and owner of all Egypt",1,2),
+    Malaky("Resource officer",0,2),
+    Boze("Harvest officer",0,3),
+    Manassah("Storage officer",1,2),
+    Lord("THE LORD",0,2);
     
     
             
@@ -29,10 +29,10 @@ public enum Actor implements Serializable{
     private final String description;
     private final Point coordinates;
 
-    Actor(String description) {
+    Actor(String description, int x, int y) {
 
         this.description = description;
-           coordinates = new Point(1,1);
+           coordinates = new Point(x,y);
             
 
     }

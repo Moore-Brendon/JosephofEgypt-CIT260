@@ -6,7 +6,7 @@
 package byui.cit260.josephInEgypt.model;
 
 import java.util.ArrayList;
-import javafx.scene.Scene;
+
 
 /**
  *
@@ -16,7 +16,7 @@ import javafx.scene.Scene;
 public class Location {
     private int column;
     private int row;
-    private Scene scene;
+    private RegularScene scene;
     private ArrayList < Actor > actors;
     
 
@@ -70,12 +70,9 @@ public class Location {
         return "Location{" + "column=" + column + ", row=" + row + '}';
     }
 
-    void setVisited(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     public void setScene(RegularScene scene) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.scene = scene;
     }
     
     
