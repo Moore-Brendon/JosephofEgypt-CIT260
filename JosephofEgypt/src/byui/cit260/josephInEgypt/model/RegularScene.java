@@ -92,19 +92,19 @@ public class RegularScene {
     public String toString() {
         return "RegularScene{" + "description=" + description + ", traveTime=" + traveTime + ", resourceType=" + resourceType + ", amountAvailable=" + amountAvailable + '}';
     }
-
+    
+   
     public void setTravelTime(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int travelTime = i;
     }
 
     public void setBlocked(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean blocked = b;
     }
 
     public void setMapSymbol(String st) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String symbol = st;    
     }
-    
     
     
     
