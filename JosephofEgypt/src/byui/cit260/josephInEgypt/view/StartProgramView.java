@@ -20,8 +20,10 @@ import byui.cit260.josephInEgypt.model.Player;
         super("\n* This is the game of Joseph in Egypt.      *"
             + "\n* In this game you will help Joseph prepare *"
             + "\n* for the famine that is coming in 7 years. *"
+
             + "\n*********************************************"
             + "\n* Please enter your name. *");
+
     }
      @Override
 
@@ -29,6 +31,7 @@ import byui.cit260.josephInEgypt.model.Player;
         String playersName = (String) obj;
         
         //playersName = this.getInput();
+
         Player player = ProgramControl.createPlayer(playersName);
                
         this.displayWelcomeMessage(player);

@@ -32,6 +32,7 @@ class MapControl {
         return map;
     }
 
+
     static void moveActorsToStartingLocation(Map map) throws MapControlExceptions {
         Actor[] actors = Actor.values();
         
@@ -39,10 +40,9 @@ class MapControl {
             Point coordinates = actor.getCoordinates();
             MapControl.moveActorToLocation(actor, coordinates);
             }
-        
-
-
     }
+
+
     
     private static RegularScene[] createScenes(){
         

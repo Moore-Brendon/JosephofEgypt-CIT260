@@ -206,7 +206,7 @@ public class GameMenuView extends View{
                             "Required" + "\t" +
                             "In Stock");
        for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getDescription() + "\t   " +
+            System.out.println(inventoryItem.getInventoryItem() + "\t   " +
                                 inventoryItem.getRequiredAmount() + "\t    " +
                                 inventoryItem.getQuantityInStock());
 }

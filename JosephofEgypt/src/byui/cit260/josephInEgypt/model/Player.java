@@ -17,7 +17,7 @@ public class Player implements Serializable{
     //class intance variables
     private String name;
     private double bestHarvest;
-
+// add locations
     public Player() {
     }
     
