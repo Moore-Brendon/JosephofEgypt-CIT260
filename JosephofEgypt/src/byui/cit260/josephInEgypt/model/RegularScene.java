@@ -34,8 +34,8 @@ public class RegularScene {
         return travelTime;
     }
 
-    public void setTravelTime(long traveTime) {
-        this.travelTime = traveTime;
+    public void setTravelTime(long travelTime) {
+        this.travelTime = travelTime;
     }
 
     public String getResourceType() {
@@ -90,7 +90,7 @@ public class RegularScene {
 
     @Override
     public String toString() {
-        return "RegularScene{" + "description=" + description + ", traveTime=" + travelTime + ", resourceType=" + resourceType + ", amountAvailable=" + amountAvailable + '}';
+        return "RegularScene{" + "description=" + description + ", travelTime=" + travelTime + ", resourceType=" + resourceType + ", amountAvailable=" + amountAvailable + '}';
     }
     
    

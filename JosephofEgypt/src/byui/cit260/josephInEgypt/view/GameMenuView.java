@@ -151,7 +151,11 @@ public class GameMenuView extends View{
 
     private void constructPyramid() throws InventoryControlExceptions {
       //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
+    ConstructPyramidView constructPyramidView = new ConstructPyramidView();
+    constructPyramidView.display();
+    }
+    
+/*
         System.out.println( "\n"
             + "\n----------------------------"
             + "\n| Enter dimensions of pyramid.              |"
@@ -167,13 +171,13 @@ public class GameMenuView extends View{
         length = this.getPLength();
         width = this.getPWidth();
         height = this.getPHeight();
-        volume = this.doPAction(length,width,height);
+      //  volume = this.doAction(length,width,height);
         this.savePyramid();
         System.out.println("Pyramid saved. Volume:" + volume);
         
     
     }
-
+*/
     
 
     private void constructTools() {
@@ -332,11 +336,13 @@ public class GameMenuView extends View{
             }
         return input;
     }
-    public double doPAction(double length, double width, double height) throws InventoryControlExceptions {
+    /*
+    public double doAction(double length, double width, double height) throws InventoryControlExceptions {
        InventoryControl inventoryControl = new InventoryControl();
        double volume = inventoryControl.calcDesignPyramid (length, width, height);
        return volume;
     }
+    */
     private void savePyramid() {
         InventoryControl.savePyramid();
         this.display();

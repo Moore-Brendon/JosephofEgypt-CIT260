@@ -6,12 +6,17 @@
 package byui.cit260.josephInEgypt.control;
 
 import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
+import byui.cit260.josephInEgypt.model.Game;
+import byui.cit260.josephInEgypt.model.Pyramid;
 
 /**
  *
  * @author Brendon.Moore
  */
 public class InventoryControl {
+    
+    Game game = JosephofEgypt.JosephofEgypt.getCurrentGame();
+        Pyramid pyramid = game.getPyramid();
 
     public static void savePyramid() {
         System.out.println("\n*** savePyramid stub function called ***"); 
@@ -33,22 +38,23 @@ public class InventoryControl {
 
     }
     
-        public double calcDesignPyramid (double length, double width, double height) throws InventoryControlExceptions {
+        public static int calcDesignPyramid (int length, int width, int height)throws InventoryControlExceptions {
     
         if (length < 0 || length > 50){
             throw new InventoryControlExceptions("Length must be more than 0 and less than 50");
         }
+       
         
         if (width < 0 || width > 50){
-            throw new InventoryControlExceptions("Width must be more than 0 and less than 50");
-                    
+           throw new InventoryControlExceptions("Width must be more than 0 and less than 50");
+         
         }
         
         if (height < 0 || height > 50){
             throw new InventoryControlExceptions("Height must be more than 0 and less than 50");
         }
-        
-    double volume = (length * width * height) / 3;
+               
+    int volume = (length * width * height) / 3;
     
     return volume;
        

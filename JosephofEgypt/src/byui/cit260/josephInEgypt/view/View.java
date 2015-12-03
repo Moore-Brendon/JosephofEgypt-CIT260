@@ -5,7 +5,13 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import JosephofEgypt.JosephofEgypt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +20,11 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = JosephofEgypt.getInFile();
+    protected final PrintWriter console = JosephofEgypt.getOutFile();
+    
+    
     
     public View(String promptMessage){
         this.promptMessage = promptMessage;
@@ -36,21 +47,27 @@ public abstract class View implements ViewInterface {
     
     @Override
     public String getInput(){
-    Scanner keyboard = new Scanner(System.in);
+    
     boolean valid = false;
     String value = null;
     
-    while (!valid){
-    value = keyboard.nextLine();
-    value = value.trim();
     
-    if (value.length()<1){
-        System.out.println("You must enter a value.");
-        continue;
+        try {
+            while (!valid){
+            
+            value = this.keyboard.readLine();
+            value = value.trim();
+            
+            if (value.length()<1){
+                System.out.println("You must enter a value.");
+                continue;
+                
+            }
+            break;
+            }
+        } catch (Exception e) {
+System.out.println("Error Reading Input" + e.getMessage());        }
         
-    }
-    break;
-}
     return value;
 }
 

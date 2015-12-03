@@ -18,10 +18,10 @@ public enum Actor implements Serializable{
     //assign correct coordinates to actors
     Joseph("He is the leader of the project",2,3),
     Pharaoh("He is the ruler and owner of all Egypt",1,2),
-    Malaky("Resource officer",0,2),
-    Boze("Harvest officer",0,3),
+    Malaky("Resource officer",1,1),
+    Boze("Harvest officer",1,3),
     Manassah("Storage officer",1,2),
-    Lord("THE LORD",0,2);
+    Lord("THE LORD",1,2);
     
     
             

@@ -16,10 +16,10 @@ public class Pyramid implements Serializable{
 
    
     
-    private double length;
-    private double width;
-    private double height;
-    private double volume;
+    private int length;
+    private int width;
+    private int height;
+    private int volume;
     private final String description;
 
      public Pyramid() {
@@ -31,35 +31,36 @@ public class Pyramid implements Serializable{
          this.length = 0;
          
     }
-    public double getLength() {
+     
+    public int getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(int length) {
         this.length = length;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public double getVolume() {
+    public int getVolume() {
         return volume;
     }
 
-    public void setVolume(double volume) {
+    public void setVolume(int volume) {
         this.volume = volume;
     }
 

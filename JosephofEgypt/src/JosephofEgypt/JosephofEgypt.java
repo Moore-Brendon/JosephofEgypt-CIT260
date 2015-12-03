@@ -8,6 +8,12 @@ package JosephofEgypt;
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.Player;
 import byui.cit260.josephInEgypt.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,16 +27,53 @@ public class JosephofEgypt {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        StartProgramView startProgramView = new StartProgramView();
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
+    
+    
+    
+    public static void main(String[] args){
         try {
+            JosephofEgypt.inFile = 
+                    new BufferedReader(new InputStreamReader(System.in));
+            JosephofEgypt.outFile = new PrintWriter(System.out, true);
+            
+            
+            String filePath = "log.txt";
+            JosephofEgypt.logFile = new PrintWriter(filePath);
+            
+        StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
+        return;
+        
     } catch (Throwable te) {
+       
         System.out.println(te.getMessage());
         te.printStackTrace();
-        startProgramView.display();
+        
         }
+        
+        finally {
+            try {
+                if (JosephofEgypt.inFile != null)
+                    JosephofEgypt.inFile.close();
+                
+                if (JosephofEgypt.outFile != null)
+                    JosephofEgypt.outFile.close();
+                
+                if  (JosephofEgypt.logFile != null)
+                    JosephofEgypt.logFile.close();
+                
+            } catch (IOException ex) {
+              System.out.println("Error closing files");
+                return;
+            }
+          
+        }
+        
     }
 
     public static Game getCurrentGame() {
@@ -51,6 +94,38 @@ public class JosephofEgypt {
     
     public static Game saveGame(Game savedGame ){
        return savedGame;
+    }
+
+    public static Game getSavedGame() {
+        return savedGame;
+    }
+
+    public static void setSavedGame(Game savedGame) {
+        JosephofEgypt.savedGame = savedGame;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        JosephofEgypt.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        JosephofEgypt.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        JosephofEgypt.logFile = logFile;
     }
     
 }
