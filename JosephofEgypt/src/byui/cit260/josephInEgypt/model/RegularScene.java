@@ -15,7 +15,7 @@ import java.util.Objects;
 public class RegularScene {
     
     private String description;
-    private long traveTime;
+    private long travelTime;
     private String resourceType;
     private double amountAvailable;
 
@@ -30,12 +30,12 @@ public class RegularScene {
         this.description = description;
     }
 
-    public long getTraveTime() {
-        return traveTime;
+    public long getTravelTime() {
+        return travelTime;
     }
 
-    public void setTraveTime(long traveTime) {
-        this.traveTime = traveTime;
+    public void setTravelTime(long traveTime) {
+        this.travelTime = traveTime;
     }
 
     public String getResourceType() {
@@ -58,7 +58,7 @@ public class RegularScene {
     public int hashCode() {
         int hash = 7;
         hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + (int) (this.traveTime ^ (this.traveTime >>> 32));
+        hash = 67 * hash + (int) (this.travelTime ^ (this.travelTime >>> 32));
         hash = 67 * hash + Objects.hashCode(this.resourceType);
         hash = 67 * hash + (int) (Double.doubleToLongBits(this.amountAvailable) ^ (Double.doubleToLongBits(this.amountAvailable) >>> 32));
         return hash;
@@ -76,7 +76,7 @@ public class RegularScene {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (this.traveTime != other.traveTime) {
+        if (this.travelTime != other.travelTime) {
             return false;
         }
         if (!Objects.equals(this.resourceType, other.resourceType)) {
@@ -90,7 +90,7 @@ public class RegularScene {
 
     @Override
     public String toString() {
-        return "RegularScene{" + "description=" + description + ", traveTime=" + traveTime + ", resourceType=" + resourceType + ", amountAvailable=" + amountAvailable + '}';
+        return "RegularScene{" + "description=" + description + ", traveTime=" + travelTime + ", resourceType=" + resourceType + ", amountAvailable=" + amountAvailable + '}';
     }
     
    

@@ -51,7 +51,7 @@ public class HelpMenuView extends View {
                 this.displayHowToDeliver();
                 break;
             case 'Q':
-                return false;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection*** Try again");
                 break;

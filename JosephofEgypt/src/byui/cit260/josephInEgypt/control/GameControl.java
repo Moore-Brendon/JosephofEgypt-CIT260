@@ -140,7 +140,8 @@ public class GameControl {
        
     
           public static InventoryItem[] getSortedInventoryList() {
-        InventoryItem[] originalInventoryList =
+       // we need a try catch if View inventory list is called before there is anything here KSH
+              InventoryItem[] originalInventoryList =
                 JosephofEgypt.getCurrentGame().getInventory();
         
         InventoryItem[] inventoryList = originalInventoryList.clone();
