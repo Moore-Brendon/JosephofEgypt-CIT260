@@ -123,10 +123,13 @@ public class GameMenuView extends View{
 
     private void exploreLocation() {
         /*Display the current position territory  
-        * sorted list of resources availble for harvest
-        * progress status
-        * time left to complete task
+         * sorted list of resources availble for harvest
+         * progress status
+         * time left to complete task
         */
+        
+      // ExploreLocationView exploreView = new ExploreLocationView();
+      // exploreView.display();
     }
 
     private void calculateHarvest() throws InventoryControlExceptions {
@@ -181,19 +184,19 @@ public class GameMenuView extends View{
     
 
     private void constructTools() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void constructBarrels() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void transportGoods() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void deliverGoods() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void viewGameMap(Map map) {
@@ -287,55 +290,10 @@ public class GameMenuView extends View{
     private void saveHarvestObj() {
        HarvestControl.saveHarvestObj();
     }
- private double getPLength() {
-        boolean valid = false;
-        double input = 0;
-        Scanner keyboard = new Scanner(System.in);
-        while (!valid) {
-            System.out.println("Length:");
-            input = keyboard.nextDouble();
-            if (input < 1 | input > 50 ){
-            System.out.println ("Length must be greater than 0 and less than 50.");
-            continue;
-            }
-            
-        break;
-            }
-        return input;
-        }
+
  
- private double getPWidth() {
-        boolean valid = false;
-        double input = 0;
-        Scanner keyboard = new Scanner(System.in);
-        while (!valid) {
-            System.out.println("Width:");
-            input = keyboard.nextDouble();
-            if (input < 1 | input > 50  ){
-            System.out.println ("Width must be greater than 0 and less than 50.");
-            continue;
-            }
-            
-        break;
-            }
-        return input;
-        }
-    private double getPHeight() {
-        boolean valid = false;
-        double input = 0;
-        Scanner keyboard = new Scanner(System.in);
-        while (!valid) {
-            System.out.println("Height:");
-            input = keyboard.nextDouble();
-            if (input < 1 | input > 50 ){
-            System.out.println ("Height must be greater than 0 and less than 50.");
-            continue;
-            }
-            
-        break;
-            }
-        return input;
-    }
+ 
+   
     /*
     public double doAction(double length, double width, double height) throws InventoryControlExceptions {
        InventoryControl inventoryControl = new InventoryControl();

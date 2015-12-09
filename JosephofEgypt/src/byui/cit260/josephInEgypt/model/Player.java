@@ -17,6 +17,7 @@ public class Player implements Serializable{
     //class intance variables
     private String name;
     private double bestHarvest;
+    private Location [][] location;
 // add locations
     public Player() {
     }
@@ -38,6 +39,16 @@ public class Player implements Serializable{
     public void setBestHarvest(double bestHarvest) {
         this.bestHarvest = bestHarvest;
     }
+
+    public Location[][] getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location[][] location) {
+        this.location = location;
+    }
+    
+    
 
     @Override
     public int hashCode() {

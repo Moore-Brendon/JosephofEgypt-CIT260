@@ -5,17 +5,10 @@
  */
 package byui.cit260.josephInEgypt.view;
 
-import byui.cit260.josephInEgypt.control.GameControl;
 import byui.cit260.josephInEgypt.control.InventoryControl;
 import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
-import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.GameMenuView;
-import byui.cit260.josephInEgypt.model.Pyramid;
-import java.io.IOException;
-import static java.lang.Integer.parseInt;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,82 +17,114 @@ import java.util.logging.Logger;
 
 // THIS VIEW IS NO LONGER BEING USED. CODE WAS MOVED TO GAMEMENUVIEW
 public class ConstructPyramidView extends View {
+    
+   
+    
    
     public ConstructPyramidView(){
           super("\n----------------------------"
             + "\n| Enter dimensions of pyramid.|"
             + "\n----------------------------"
-            + "\n----------------------------");
+            + "\n----------------------------"
+               + "\nSelect and option below"
+                  + "\nL - Enter Length"
+                  + "\nW - Enter Width"
+                  + "\nH - Enter Height"
+                  + "\nE - Exit");
           
     }
         
     
     
     
+    
     @Override
-       public String getInput(){
-            
-        try {
-            System.out.println(" Please Enter Pyramid length : ");
-            String length = this.keyboard.readLine();
-            int intLength = parseInt(length);
-            
-            if (intLength < 1 | intLength > 50 ){
-                System.out.println ("Length must be greater than 0 and less than 50.");
-            }
-            
-            
-            System.out.println(" Please Enter Pyramid width : ");
-            int intWidth = parseInt(this.keyboard.readLine());
-            
-            if (intWidth < 1 | intWidth > 50  ){
-                System.out.println ("Width must be greater than 0 and less than 50.");
-                
-            }
-            System.out.println(" Please Enter Pyramid height : ");       
-            int intHeight = parseInt(this.keyboard.readLine());
-            
-            if (intHeight < 1 | intHeight > 50 ){
-                System.out.println ("Height must be greater than 0 and less than 50.");
-                        
-            }
-            
-           InventoryControl.calcDesignPyramid(intLength, intWidth, intHeight);
-           
-                    
-            
-        } catch (IOException ex) {
-            Logger.getLogger(ConstructPyramidView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InventoryControlExceptions ex) {
-            Logger.getLogger(ConstructPyramidView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-        
-       
-        
-     }
-       
-        
-         
-   
-        @Override
     public boolean doAction(Object obj){
-     Pyramid pyramid = (Pyramid) obj;
-     int volume = pyramid.getVolume();
-     pyramid.getVolume();
+      String value =(String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
+        switch (choice) {
+            case 'L':
+                this.getPLength();
+            break;
+            
+            case 'W':
+                this.getPWidth();
+            break;
+            
+            case 'H':
+                this.getPHeight();
+             case 'E':
+                return true;            
+            default :
+            System.out.println("Enter a valid option");
+              
+         }
         return false;
     }
+    /*
+    private double calcVolume(double length, double width, double height) throws InventoryControlExceptions{
+        
+        length = this.getPLength();
+        width = this.getPWidth();
+        height = this.getPHeight();
+        
+        volume = InventoryControl.calcDesignPyramid(length, width, height);
+        
+        return volume;
+    }
+    */
     
     
+     private double getPLength() {
+        boolean valid = false;
+        double input = 0;
+        Scanner keyboard = new Scanner(System.in);
+        while (!valid) {
+            System.out.println("Length:");
+            input = keyboard.nextDouble();
+                      
+        break;
+            }
+        return input;
+        }
+    
+     
+     private double getPWidth() {
+        boolean valid = false;
+        double input = 0;
+        Scanner keyboard = new Scanner(System.in);
+        while (!valid) {
+            System.out.println("Width:");
+            input = keyboard.nextDouble();
+                     
+        break;
+            }
+        return input;
+        }
+     
+         private double getPHeight() {
+        boolean valid = false;
+        double input = 0;
+        Scanner keyboard = new Scanner(System.in);
+        while (!valid) {
+            System.out.println("Height:");
+            input = keyboard.nextDouble();
+                      
+        break;
+            }
+        return input;
+    }
    
     
-    
+   /* 
     private void savePyramid() {
         InventoryControl.savePyramid();
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
     }
-   
+   */
 }
 
 

@@ -16,51 +16,56 @@ public class Pyramid implements Serializable{
 
    
     
-    private int length;
-    private int width;
-    private int height;
-    private int volume;
-    private final String description;
+    private double length;
+    private double width;
+    private double height;
+    private double volume;
+    private String description;
 
-     public Pyramid() {
-         
-         this.description = "\nThis Pyramid will save Egypt from the famine";
-         this.width = 0;
-         this.height = 0;
-         this.volume = 0;
-         this.length = 0;
-         
+    
+    public Pyramid(double length, double width, double height, double volume, String description) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.volume = volume;
+        this.description = description;
     }
+
+    public Pyramid() {
+        
+    }
+         
+       
      
-    public int getLength() {
+    public double getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
-    public int getWidth() {
+    public double getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    public int getVolume() {
+    public double getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(double volume) {
         this.volume = volume;
     }
 
