@@ -6,6 +6,7 @@
 package byui.cit260.josephInEgypt.control;
 
 import JosephofEgypt.JosephofEgypt;
+import byui.cit260.josephInEgypt.exceptions.GameControlExceptions;
 import byui.cit260.josephInEgypt.exceptions.MapControlExceptions;
 import byui.cit260.josephInEgypt.model.Actor;
 import byui.cit260.josephInEgypt.model.Player;
@@ -18,6 +19,12 @@ import byui.cit260.josephInEgypt.model.Pyramid;
 import byui.cit260.josephInEgypt.model.RegularScene;
 import byui.cit260.josephInEgypt.model.SceneType;
 import byui.cit260.josephInEgypt.model.Wagon;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -43,17 +50,38 @@ public class GameControl {
     MapControl.moveActorsToStartingLocation(map);
     
     }
+
+    public static void saveGame(Game currentGame, String filePath) throws GameControlExceptions {
+        
+        try( FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(currentGame);
+            
+        }
+        catch(IOException e) {
+            throw new GameControlExceptions(e.getMessage());
+        }
+   
+    }
     public Map regreso(){
         return map;
     }
-    public static void openSavedGame(Game currentGame){
-        System.out.println("\n*** openSavedGame stub function called ***"); 
-
+    public static void openSavedGame(String filepath) throws GameControlExceptions{
+        Game game = null;
+        try(FileInputStream fips = new FileInputStream(filepath)){
+            ObjectInputStream output = new ObjectInputStream(fips);
+            game = (Game) output.readObject();
+        }
+        catch(FileNotFoundException fnfe){
+            throw new GameControlExceptions(fnfe.getMessage());
+        }
+        catch(Exception e){
+            throw new GameControlExceptions(e.getMessage());
+        }
+        JosephofEgypt.setCurrentGame(game);
+        
     }
-    public static void saveGame(Game currentGame){
-        System.out.println("\n*** saveGame stub function called ***"); 
-
-    }
+   
 
     public static void moveRiverside() {
         System.out.println("\n*** moveRiverside stub function called ***"); 

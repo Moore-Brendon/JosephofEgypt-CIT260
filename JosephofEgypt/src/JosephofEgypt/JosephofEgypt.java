@@ -92,7 +92,7 @@ public class JosephofEgypt {
         JosephofEgypt.player = player;
     }
     
-    public static Game saveGame(Game savedGame ){
+    public static Game saveGame(Game game, String filepath ){
        return savedGame;
     }
 

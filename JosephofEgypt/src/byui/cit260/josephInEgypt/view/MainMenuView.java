@@ -79,9 +79,17 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        GameControl.openSavedGame(JosephofEgypt.getCurrentGame());
+        System.out.println("\n\nEnter the file path where the game was saved.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.openSavedGame(filePath);
+        } catch (Exception ex){
+            ErrorView.display("MainMenuView",ex.getMessage());
+        }
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();    }
+        gameMenu.display();
+          }
 
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();

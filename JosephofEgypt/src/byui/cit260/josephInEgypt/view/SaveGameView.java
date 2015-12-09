@@ -37,7 +37,15 @@ public class SaveGameView extends View{
       return false;
   }
     private void saveGame() {
-        GameControl.saveGame(JosephofEgypt.saveGame(JosephofEgypt.saveGame(null)));
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();    }
+        System.out.println("\n\nEnter the file path where you would like to save.");
+        String filePath = this.getInput();
+        try{
+            GameControl.saveGame(JosephofEgypt.getCurrentGame(), filePath);
+            
+        } catch (Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+            
+        }
+        
+    }
 }
