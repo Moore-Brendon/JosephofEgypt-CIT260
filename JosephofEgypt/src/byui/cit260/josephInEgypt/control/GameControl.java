@@ -211,12 +211,12 @@ public class GameControl {
         static void assignScenesToLocations(Map map, RegularScene[] scenes) {
         Location[][] locations = map.getLocations();
         
-        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
-        locations[0][1].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[0][2].setScene(scenes[SceneType.resource.ordinal()]);
-        locations[0][3].setScene(scenes[SceneType.storage.ordinal()]);
-        locations[0][4].setScene(scenes[SceneType.regular.ordinal()]);
-        locations[0][5].setScene(scenes[SceneType.finish.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.start.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.resource.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.storage.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.regular.ordinal()]);
+        locations[1][5].setScene(scenes[SceneType.finish.ordinal()]);
         
         
        

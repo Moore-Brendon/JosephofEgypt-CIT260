@@ -5,6 +5,9 @@
  */
 package byui.cit260.josephInEgypt.control;
 
+import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,7 +35,12 @@ public class InventoryControlTest {
         double radius = 10;
         InventoryControl instance = new InventoryControl();
         double expResult = 6.54;
-        double result = instance.calcVolumeOfBarrel(height, radius);
+        double result = 0;
+        try {
+            result = instance.calcVolumeOfBarrel(height, radius);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
 
 
@@ -45,7 +53,11 @@ public class InventoryControlTest {
          radius = 4;
         
         expResult = -1;
-        result = instance.calcVolumeOfBarrel(height, radius);
+        try {
+            result = instance.calcVolumeOfBarrel(height, radius);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
          /****************************
@@ -57,7 +69,11 @@ public class InventoryControlTest {
          radius = 66;
         
         expResult = -1;
-        result = instance.calcVolumeOfBarrel(height, radius);
+        try {
+            result = instance.calcVolumeOfBarrel(height, radius);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
     
          /****************************
@@ -69,7 +85,11 @@ public class InventoryControlTest {
          radius = 6;
         
         expResult = -1;
-        result = instance.calcVolumeOfBarrel(height, radius);
+        try {
+            result = instance.calcVolumeOfBarrel(height, radius);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
          /****************************
@@ -81,7 +101,11 @@ public class InventoryControlTest {
          radius = -7;
         
         expResult = -1;
-        result = instance.calcVolumeOfBarrel(height, radius);
+        try {
+            result = instance.calcVolumeOfBarrel(height, radius);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
         
@@ -94,7 +118,11 @@ public class InventoryControlTest {
          radius = 15;
         
         expResult = 0;
-        result = instance.calcVolumeOfBarrel(height, radius);
+        try {
+            result = instance.calcVolumeOfBarrel(height, radius);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
          /****************************
@@ -106,7 +134,11 @@ public class InventoryControlTest {
          radius = 0;
         
         expResult = 0;
-        result = instance.calcVolumeOfBarrel(height, radius);
+        try {
+            result = instance.calcVolumeOfBarrel(height, radius);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
          /****************************
@@ -118,7 +150,11 @@ public class InventoryControlTest {
          radius = 15;
         
         expResult = 19.63;
-        result = instance.calcVolumeOfBarrel(height, radius);
+        try {
+            result = instance.calcVolumeOfBarrel(height, radius);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
 
     
@@ -141,7 +177,12 @@ public class InventoryControlTest {
         double height = 20;
         InventoryControl instance = new InventoryControl();
         double expResult = 12906.67;
-        double result = instance.calcDesignPyramid (length, width, height);
+        double result = 0;
+        try {
+            result = instance.calcDesignPyramid (length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
         
@@ -154,7 +195,11 @@ public class InventoryControlTest {
          width = 34;
          height = 4;
         expResult = -1;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
 
         /****************************
@@ -166,7 +211,11 @@ public class InventoryControlTest {
          width = 34;
          height = 4;
         expResult = -1;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
           /****************************
@@ -178,7 +227,11 @@ public class InventoryControlTest {
          width = 23;
          height = 66;
         expResult = -1;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
           /****************************
@@ -190,7 +243,11 @@ public class InventoryControlTest {
          width = -5;
          height = 34;
         expResult = -1;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
           /****************************
@@ -202,7 +259,11 @@ public class InventoryControlTest {
          width = 44;
          height = 6;
         expResult = -1;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
           /****************************
@@ -214,7 +275,11 @@ public class InventoryControlTest {
          width = 23;
          height = -7;
         expResult = -1;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
           /****************************
@@ -226,7 +291,11 @@ public class InventoryControlTest {
          width = 33;
          height = 15;
         expResult = 0;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
           /****************************
@@ -238,7 +307,11 @@ public class InventoryControlTest {
          width = 0;
          height = 5;
         expResult = 0;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
           /****************************
@@ -250,7 +323,11 @@ public class InventoryControlTest {
          width = 4;
          height = 0;
         expResult = 0;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
         
           /****************************
@@ -262,7 +339,11 @@ public class InventoryControlTest {
          width = 50;
          height = 50;
         expResult = 41666.67;
-        result = instance.calcDesignPyramid(length, width, height);
+        try {
+            result = instance.calcDesignPyramid(length, width, height);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.01);
 }
 
@@ -283,7 +364,12 @@ public class InventoryControlTest {
         int noOfPeople = 100000;
         InventoryControl instance = new InventoryControl();
         double expResult = 255500000.0;
-        double result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        double result = 0;
+        try {
+            result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         
@@ -296,7 +382,11 @@ public class InventoryControlTest {
         totalDaysOfDrought = 2555;
         noOfPeople = 100000;
         expResult = -1;
-        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        try {
+            result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         /****************************
@@ -308,7 +398,11 @@ public class InventoryControlTest {
         totalDaysOfDrought = 2555;
         noOfPeople = 100000;
         expResult = -1;
-        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        try {
+            result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         
@@ -321,7 +415,11 @@ public class InventoryControlTest {
         totalDaysOfDrought = 2601;
         noOfPeople = 100000;
         expResult = -1;
-        result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        try {
+            result = instance.calcResourcesNeeded(dailyCons, totalDaysOfDrought, noOfPeople);
+        } catch (InventoryControlExceptions ex) {
+            Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
          /****************************

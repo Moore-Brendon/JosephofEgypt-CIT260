@@ -155,7 +155,9 @@ public class GameMenuView extends View{
     private void constructPyramid() throws InventoryControlExceptions {
       //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     ConstructPyramidView constructPyramidView = new ConstructPyramidView();
+    
     constructPyramidView.display();
+    this.display();
     }
     
 /*

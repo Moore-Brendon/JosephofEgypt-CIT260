@@ -5,7 +5,10 @@
  */
 package byui.cit260.josephInEgypt.control;
 
+import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
+import byui.cit260.josephInEgypt.model.Game;
+import byui.cit260.josephInEgypt.model.Pyramid;
 
 /**
  *
@@ -13,10 +16,7 @@ import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
  */
 public class InventoryControl {
     
-    private double pLength;
-    private double pWidth ;
-    private double pHeight;
-    private double pVolume;
+    
 
     
     
@@ -42,7 +42,10 @@ public class InventoryControl {
     
         public static double calcDesignPyramid (double pLength, double pWidth, double pHeight)throws InventoryControlExceptions {
     
-            
+          Game game = JosephofEgypt.getCurrentGame(); 
+          Pyramid pyramid = game.getPyramid();
+          
+          
             
         if (pLength < 0 || pLength > 50){
             throw new InventoryControlExceptions("Length must be more than 0 and less than 50");
@@ -58,12 +61,18 @@ public class InventoryControl {
             throw new InventoryControlExceptions("Height must be more than 0 and less than 50");
         }
                
-    double volume = (pLength * pWidth * pHeight) / 3;
-    
-    return volume;
-       
-        
-}
+        double volume = (pLength * pWidth * pHeight) / 3;
+
+        pyramid.setHeight(pHeight);
+        pyramid.setLength(pLength);
+        pyramid.setWidth(pWidth);
+        pyramid.setVolume(volume);
+
+
+        return volume;
+
+
+    }
         
         
 public static int calcResourcesNeeded (int dailyCons, int totalDaysOfDrought, int noOfPeople) throws InventoryControlExceptions{
@@ -86,11 +95,7 @@ public static int calcResourcesNeeded (int dailyCons, int totalDaysOfDrought, in
      return amountResourcesNeeded;
     }
 
-    @Override
-    public String toString() {
-        return "InventoryControl{" + "pLength=" + pLength + ", pWidth=" + pWidth + ", pHeight=" + pHeight + ", pVolume=" + pVolume + '}';
-    }
-
+   
 
     
     

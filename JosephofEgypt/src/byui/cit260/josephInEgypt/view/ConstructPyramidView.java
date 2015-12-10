@@ -7,8 +7,10 @@ package byui.cit260.josephInEgypt.view;
 
 import byui.cit260.josephInEgypt.control.InventoryControl;
 import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
-import byui.cit260.josephInEgypt.model.GameMenuView;
-import java.util.Scanner;
+import java.io.IOException;
+import static java.lang.Integer.parseInt;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,12 +18,16 @@ import java.util.Scanner;
  */
 
 // THIS VIEW IS NO LONGER BEING USED. CODE WAS MOVED TO GAMEMENUVIEW
-public class ConstructPyramidView extends View {
+public class ConstructPyramidView extends View{
+
+    public ConstructPyramidView() {
+        super("Enter the Dimensions***********");
+    }
     
    
     
    
-    public ConstructPyramidView(){
+    /*public ConstructPyramidView(){
           super("\n----------------------------"
             + "\n| Enter dimensions of pyramid.|"
             + "\n----------------------------"
@@ -30,6 +36,7 @@ public class ConstructPyramidView extends View {
                   + "\nL - Enter Length"
                   + "\nW - Enter Width"
                   + "\nH - Enter Height"
+                  + "\nV - Display Volume"
                   + "\nE - Exit");
           
     }
@@ -55,6 +62,10 @@ public class ConstructPyramidView extends View {
             
             case 'H':
                 this.getPHeight();
+            case 'V':
+                this.displayVolume();
+                break;
+                
              case 'E':
                 return true;            
             default :
@@ -63,58 +74,93 @@ public class ConstructPyramidView extends View {
          }
         return false;
     }
-    /*
-    private double calcVolume(double length, double width, double height) throws InventoryControlExceptions{
+    */
+    @Override
+     public String getInput(){
+        
+        return null;
+         
+     }
+    
+    
+   public void calcVolume() throws InventoryControlExceptions{
+       
+        double length;
+        double width;
+        double height;
+        
         
         length = this.getPLength();
         width = this.getPWidth();
         height = this.getPHeight();
         
-        volume = InventoryControl.calcDesignPyramid(length, width, height);
+        double volume = InventoryControl.calcDesignPyramid(length, width, height);
         
-        return volume;
+        System.out.println("The volume of the pyramid is: " + volume);    
+       
     }
-    */
+    
     
     
      private double getPLength() {
         boolean valid = false;
-        double input = 0;
-        Scanner keyboard = new Scanner(System.in);
+        int input = 0;
+        double pLength = 0;
+        
+    try{    
         while (!valid) {
             System.out.println("Length:");
-            input = keyboard.nextDouble();
-                      
+            input = parseInt(this.keyboard.readLine());
+            pLength = (double) input;
+                
         break;
+    }
+    }catch (IOException | NumberFormatException e){
+            System.out.println("Error reading input" + e.getMessage());
             }
-        return input;
-        }
+    
+        return pLength;
+     }    
     
      
      private double getPWidth() {
-        boolean valid = false;
-        double input = 0;
-        Scanner keyboard = new Scanner(System.in);
+       boolean valid = false;
+        int input = 0;
+        double pWidth = 0;
+        
+    try{    
         while (!valid) {
             System.out.println("Width:");
-            input = keyboard.nextDouble();
-                     
+            input = parseInt(this.keyboard.readLine());
+            pWidth = (double) input;
+                
         break;
+    }
+    }catch (IOException | NumberFormatException e){
+            System.out.println("Error reading input" + e.getMessage());
             }
-        return input;
+    
+        return pWidth;
         }
      
          private double getPHeight() {
-        boolean valid = false;
-        double input = 0;
-        Scanner keyboard = new Scanner(System.in);
+         boolean valid = false;
+        int input = 0;
+        double pHeight = 0;
+        
+    try{    
         while (!valid) {
             System.out.println("Height:");
-            input = keyboard.nextDouble();
-                      
+            input = parseInt(this.keyboard.readLine());
+            pHeight = (double) input;
+                
         break;
+    }
+    }catch (IOException | NumberFormatException e){
+            System.out.println("Error reading input" + e.getMessage());
             }
-        return input;
+    
+        return pHeight;
     }
    
     
@@ -125,6 +171,18 @@ public class ConstructPyramidView extends View {
         gameMenu.displayMenu();
     }
    */
+
+    @Override
+    public boolean doAction(Object obj) {
+        try {
+            this.calcVolume();
+        } catch (InventoryControlExceptions ex) {
+             ErrorView.display("GameMenuView", ex.getMessage());
+        }
+    return true;
+    }
+
+   
 }
 
 
