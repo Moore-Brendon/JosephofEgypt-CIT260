@@ -79,7 +79,7 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        System.out.println("\n\nEnter the file path where the game was saved.");
+        System.out.println("\n\nEnter the name of the game : ");
         String filePath = this.getInput();
         
         try{

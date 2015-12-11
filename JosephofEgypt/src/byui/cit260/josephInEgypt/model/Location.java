@@ -75,10 +75,20 @@ public class Location {
     public void setScene(RegularScene scene) {
        this.scene = scene;
     }
+    
+     public RegularScene getScene() {
+        return scene;
+    }
 
-    void setVisited(boolean b) {
+    public void setVisited(boolean b) {
         this.visited = b;
     }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+   
     
     
             

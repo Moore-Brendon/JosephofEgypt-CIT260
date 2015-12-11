@@ -46,16 +46,23 @@ public class GameMapView extends View {
         
         System.out.println(title);
         
-        System.out.println("  1  2  3  4  5  6  7  8  9  10 ");
+        System.out.println("   1  2  3  4  5  6  7  8  9  10 ");
            for(int i = 1;i<11;i++){
             
             System.out.print(i);
+            if(i< 10)
+                System.out.print(" ");
             for(int j = 1;j<11;j++){
                 System.out.print(columnDivider);
-                System.out.print("??");
+                if(locations[i][j].isVisited())
+                    System.out.print("vv");
+                else if(locations[i][j].getScene() != null)
+                    System.out.print(locations[i][j].getScene().getSymbol());
+                else 
+                    System.out.print("??");//needs more logic
                 
             }
-                System.out.print("\n");
+                System.out.println(columnDivider);
                 
         }
         

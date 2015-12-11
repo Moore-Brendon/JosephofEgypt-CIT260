@@ -28,19 +28,20 @@ public class SaveGameView extends View{
         case "c":
             return true;
         default:
-                this.saveGame();
-            break;
+                this.saveGame(value);
+            return true;
+            
         
             
             
       }
       return false;
   }
-    private void saveGame() {
-        System.out.println("\n\nEnter the file path where you would like to save.");
-        String filePath = this.getInput();
+    private void saveGame(String gameName) {
+       // System.out.println("\n\nEnter the file path where you would like to save.");
+      //  String filePath = this.getInput();
         try{
-            GameControl.saveGame(JosephofEgypt.getCurrentGame(), filePath);
+            GameControl.saveGame(JosephofEgypt.getCurrentGame(), gameName);
             
         } catch (Exception ex){
             ErrorView.display("MainMenuView", ex.getMessage());

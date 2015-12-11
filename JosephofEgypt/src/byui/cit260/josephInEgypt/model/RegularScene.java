@@ -15,10 +15,14 @@ import java.util.Objects;
 public class RegularScene {
     
     private String description;
-    private long travelTime;
+    private int travelTime;
     private String resourceType;
     private double amountAvailable;
-
+    private String symbol;
+    private boolean blocked;
+   
+    
+    
     public RegularScene() {
     }
 
@@ -30,11 +34,11 @@ public class RegularScene {
         this.description = description;
     }
 
-    public long getTravelTime() {
+    public int getTravelTime() {
         return travelTime;
     }
 
-    public void setTravelTime(long travelTime) {
+    public void setTravelTime(int travelTime) {
         this.travelTime = travelTime;
     }
 
@@ -94,16 +98,21 @@ public class RegularScene {
     }
     
    
-    public void setTravelTime(int i) {
-        int travelTime = i;
-    }
-
+   
     public void setBlocked(boolean b) {
-        boolean blocked = b;
+      blocked = b;
     }
 
+    public boolean isBlocked() {
+        return blocked;
+    }
+    
     public void setMapSymbol(String st) {
-        String symbol = st;    
+        symbol = st;    
+    }
+
+    public String getSymbol() {
+        return symbol;
     }
     
     

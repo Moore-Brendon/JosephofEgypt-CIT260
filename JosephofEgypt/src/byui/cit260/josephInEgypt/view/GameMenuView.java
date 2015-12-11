@@ -214,7 +214,7 @@ public class GameMenuView extends View{
         
         GameMapView gameMapView = new GameMapView();
         gameMapView.display();
-        this.display();
+        
         
         
       

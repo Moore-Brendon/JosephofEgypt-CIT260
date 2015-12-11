@@ -5,12 +5,14 @@
  */
 package byui.cit260.josephInEgypt.model;
 
+import java.io.Serializable;
+
 /**
  *
  * 
  * @author User
  */
-public class Game {
+public class Game implements Serializable {
     
      // totalTime
     private int noPeople;
