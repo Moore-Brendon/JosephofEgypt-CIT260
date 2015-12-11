@@ -34,7 +34,7 @@ public class SaveGameView extends View{
             
             
       }
-      return false;
+      return true;
   }
     private void saveGame() {
         System.out.println("\n\nEnter the file path where you would like to save.");
