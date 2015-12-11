@@ -20,8 +20,16 @@ public class InventoryControl {
 
     
     
-    public static void savePyramid() {
-        System.out.println("\n*** savePyramid stub function called ***"); 
+    public static void savePyramid (double length,double width,double height) {
+      Game game = JosephofEgypt.getCurrentGame();
+       Pyramid pyramid = game.getPyramid();
+        
+        pyramid.setHeight(height);
+        pyramid.setLength(length);
+        pyramid.setWidth(width);
+        
+        System.out.println("Saved Pyramid with values length = " + length + "width = " + width 
+        + "height = " + height);
     }
     
     public double calcVolumeOfBarrel(double height, double radius) throws InventoryControlExceptions{

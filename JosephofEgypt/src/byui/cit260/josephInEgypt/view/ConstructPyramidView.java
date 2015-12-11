@@ -5,8 +5,12 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.control.InventoryControl;
+import static byui.cit260.josephInEgypt.control.InventoryControl.savePyramid;
 import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
+import byui.cit260.josephInEgypt.model.Game;
+import byui.cit260.josephInEgypt.model.Pyramid;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.util.logging.Level;
@@ -85,10 +89,14 @@ public class ConstructPyramidView extends View{
     
    public void calcVolume() throws InventoryControlExceptions{
        
-        double length;
-        double width;
-        double height;
+       
+       
+        double length = 0;
+        double width=0;
+        double height=0;
+        boolean valid = false;
         
+        while(!valid){
         
         length = this.getPLength();
         width = this.getPWidth();
@@ -96,8 +104,15 @@ public class ConstructPyramidView extends View{
         
         double volume = InventoryControl.calcDesignPyramid(length, width, height);
         
-        System.out.println("The volume of the pyramid is: " + volume);    
+        
+        
+        System.out.println("The volume of the pyramid is: " + volume); 
+        
+        valid =  true;
+        }
        
+        InventoryControl.savePyramid(length, width, height);
+        
     }
     
     

@@ -316,10 +316,7 @@ public class GameMenuView extends View{
        return volume;
     }
     */
-    private void savePyramid() {
-        InventoryControl.savePyramid();
-        this.display();
-    }
+   
 
    
 }
