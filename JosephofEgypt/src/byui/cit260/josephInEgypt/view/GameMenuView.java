@@ -9,6 +9,7 @@ import byui.cit260.josephInEgypt.control.GameControl;
 import byui.cit260.josephInEgypt.control.HarvestControl;
 import byui.cit260.josephInEgypt.control.InventoryControl;
 import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
+import byui.cit260.josephInEgypt.model.Actor;
 
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
@@ -97,7 +98,7 @@ public class GameMenuView extends View{
                 this.deliverGoods();
                 break;
             case 'V':
-                this.viewGameMap(GameControl.map);
+                this.viewGameMap();
                 break;
             case 'I':
                 this.showCurrentInventory();
@@ -113,6 +114,13 @@ public class GameMenuView extends View{
     }
 
     private void moveToNewLocation() {
+        GameMapView mapView = new GameMapView();
+        mapView.doAction(this);
+        MoveMenuView moveMenuView = new MoveMenuView();
+        moveMenuView.display();
+        
+        
+        
         //display banner with a graphical map, the map needs a symbol to distinguish territories
         //prompt user to enter coordinates
         //validate input with if ladder
@@ -201,8 +209,13 @@ public class GameMenuView extends View{
      //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void viewGameMap(Map map) {
-          Location[][] locations = map.getLocations();
+    public void viewGameMap() {
+        
+        
+        GameMapView gameMapView = new GameMapView();
+        gameMapView.display();
+        this.display();
+        
         
       
     }  

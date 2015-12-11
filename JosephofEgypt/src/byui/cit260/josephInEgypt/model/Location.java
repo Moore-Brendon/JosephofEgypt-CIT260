@@ -18,6 +18,7 @@ public class Location {
     private int row;
     private RegularScene scene;
     private ArrayList < Actor > actors;
+    private boolean visited;
     
 
     public Location() {
@@ -73,6 +74,10 @@ public class Location {
    
     public void setScene(RegularScene scene) {
        this.scene = scene;
+    }
+
+    void setVisited(boolean b) {
+        this.visited = b;
     }
     
     

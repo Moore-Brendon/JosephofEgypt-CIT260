@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 public enum Actor implements Serializable{
     //assign correct coordinates to actors
-    Joseph("He is the leader of the project",2,3),
+    
     Pharaoh("He is the ruler and owner of all Egypt",1,2),
     Malaky("Resource officer",1,1),
     Boze("Harvest officer",1,3),
