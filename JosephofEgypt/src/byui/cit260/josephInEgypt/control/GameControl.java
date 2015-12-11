@@ -7,6 +7,7 @@ package byui.cit260.josephInEgypt.control;
 
 import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.exceptions.GameControlExceptions;
+import byui.cit260.josephInEgypt.exceptions.InventoryControlExceptions;
 import byui.cit260.josephInEgypt.exceptions.MapControlExceptions;
 import byui.cit260.josephInEgypt.model.Actor;
 import byui.cit260.josephInEgypt.model.Player;
@@ -60,6 +61,19 @@ public class GameControl {
         }
         catch(IOException e) {
             throw new GameControlExceptions(e.getMessage());
+        }
+   
+    }
+    
+    public static void saveReport(String saveReport, String filePath) throws InventoryControlExceptions, GameControlExceptions {
+        
+        try( FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(saveReport);
+            
+        }
+        catch(IOException e) {
+            throw new InventoryControlExceptions(e.getMessage());
         }
    
     }
@@ -117,50 +131,50 @@ public class GameControl {
         
         InventoryItem wood = new InventoryItem();
         wood.setInventoryItem("Wood");
-        wood.setQuantityInStock(0);
-        wood.setRequiredAmounts(0);
+        wood.setQuantityInStock(5);
+        wood.setRequiredAmount(50);
         inventory[Item.wood.ordinal()] = wood;
         
          InventoryItem ore = new InventoryItem();
         ore.setInventoryItem("Ore");
-        ore.setQuantityInStock(0);
-        ore.setRequiredAmounts(0);
+        ore.setQuantityInStock(10);
+        ore.setRequiredAmount(100);
         inventory[Item.ore.ordinal()] = ore;
         
          InventoryItem grain = new InventoryItem();
         grain.setInventoryItem("Grain");
-        grain.setQuantityInStock(0);
-        grain.setRequiredAmounts(0);
+        grain.setQuantityInStock(5);
+        grain.setRequiredAmount(200);
         inventory[Item.grain.ordinal()] = grain;
         
          InventoryItem hammer = new InventoryItem();
         hammer.setInventoryItem("Hammer");
-        hammer.setQuantityInStock(0);
-        hammer.setRequiredAmounts(0);
+        hammer.setQuantityInStock(1);
+        hammer.setRequiredAmount(10);
         inventory[Item.hammer.ordinal()] = hammer;
         
          InventoryItem chisel = new InventoryItem();
         chisel.setInventoryItem("Chisel");
-        chisel.setQuantityInStock(0);
-        chisel.setRequiredAmounts(0);
+        chisel.setQuantityInStock(10);
+        chisel.setRequiredAmount(50);
         inventory[Item.chisel.ordinal()] = chisel;
         
          InventoryItem saw = new InventoryItem();
         saw.setInventoryItem("Saw");
-        saw.setQuantityInStock(0);
-        saw.setRequiredAmounts(0);
+        saw.setQuantityInStock(1);
+        saw.setRequiredAmount(5);
         inventory[Item.saw.ordinal()] = saw;
         
          InventoryItem carts = new InventoryItem();
         carts.setInventoryItem("Carts");
-        carts.setQuantityInStock(0);
-        carts.setRequiredAmounts(0);
+        carts.setQuantityInStock(1);
+        carts.setRequiredAmount(25);
         inventory[Item.carts.ordinal()] = carts;
         
          InventoryItem barrels = new InventoryItem();
         barrels.setInventoryItem("Barrels");
-        barrels.setQuantityInStock(0);
-        barrels.setRequiredAmounts(0);
+        barrels.setQuantityInStock(5);
+        barrels.setRequiredAmount(100);
         inventory[Item.barrels.ordinal()] = barrels;
         return inventory;
              
@@ -223,6 +237,6 @@ public class GameControl {
 
         
     }
-    
-    
+
+       
 }

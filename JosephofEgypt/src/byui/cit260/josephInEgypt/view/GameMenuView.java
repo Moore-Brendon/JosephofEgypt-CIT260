@@ -15,6 +15,7 @@ import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.InventoryItem;
 import byui.cit260.josephInEgypt.model.Location;
 import byui.cit260.josephInEgypt.model.Map;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +44,7 @@ public class GameMenuView extends View{
             + "\nD - Deliver Goods "
             + "\nV - View Game Map "
             + "\nI - Show Current Inventory  "
+            + "\nR - Print Inventory Report  "
             + "\nE - Exit "
             + "\n----------------------------");
 }
@@ -102,6 +104,15 @@ public class GameMenuView extends View{
                 break;
             case 'I':
                 this.showCurrentInventory();
+                break;
+            case 'R':
+        {
+            try {
+                this.displayPrintReport();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());            
+            }
+        }
                 break;
             case 'E':
                 return true;
@@ -228,8 +239,8 @@ public class GameMenuView extends View{
                             "Required" + "\t" +
                             "In Stock");
        for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getInventoryItem() + "\t   " +
-                                inventoryItem.getRequiredAmount() + "\t    " +
+            System.out.println(inventoryItem.getInventoryItem() + "\t      " +
+                                inventoryItem.getRequiredAmount() + "\t       " +
                                 inventoryItem.getQuantityInStock());
 }
 }
@@ -318,5 +329,11 @@ public class GameMenuView extends View{
     */
    
 
-   
+   private void displayPrintReport() throws IOException {
+            
+        PrintReportView printReport = new PrintReportView();
+        printReport.display();    
+
+
+    }
 }

@@ -24,6 +24,7 @@ public class JosephofEgypt {
     private static Game currentGame = null;
     private static Player player = null;
     private static Game savedGame = null;
+    private static Game savedReport = null;
     /**
      * @param args the command line arguments
      */
@@ -95,7 +96,10 @@ public class JosephofEgypt {
     public static Game saveGame(Game game, String filepath ){
        return savedGame;
     }
-
+    public static Game saveReport(Game report, String filepath ){
+        
+       return savedReport;
+    }   
     public static Game getSavedGame() {
         return savedGame;
     }
@@ -126,6 +130,10 @@ public class JosephofEgypt {
 
     public static void setLogFile(PrintWriter logFile) {
         JosephofEgypt.logFile = logFile;
+    }
+
+    public static Game saveReport() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

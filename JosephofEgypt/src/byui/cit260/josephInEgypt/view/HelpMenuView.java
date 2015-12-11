@@ -5,6 +5,12 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import JosephofEgypt.JosephofEgypt;
+import byui.cit260.josephInEgypt.control.GameControl;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author User
@@ -21,6 +27,7 @@ public class HelpMenuView extends View {
             + "\nC - Construct items"
             + "\nH - Harvesting"
             + "\nD - Deliver Resources"
+            + "\nP - Print Inventory List"
             + "\nQ - Quit"
             + "\n----------------------------");
      }
@@ -50,6 +57,7 @@ public class HelpMenuView extends View {
             case 'D':
                 this.displayHowToDeliver();
                 break;
+            
             case 'Q':
                 return true;
             default:
@@ -57,7 +65,7 @@ public class HelpMenuView extends View {
                 break;
                 
         }
-        return false;
+        return true;
     }
 
     private void displayGoal() {
@@ -119,6 +127,8 @@ public class HelpMenuView extends View {
                 + "\nand Joseph will send them with carts"
                 + "\ndisplayHowToDeliver function called");
     }
+
+    
 }
     
 
