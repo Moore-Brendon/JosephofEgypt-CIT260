@@ -9,6 +9,7 @@ import JosephofEgypt.JosephofEgypt;
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.Location;
 import byui.cit260.josephInEgypt.model.Map;
+import byui.cit260.josephInEgypt.model.Player;
 
 /**
  *
@@ -38,6 +39,7 @@ public class GameMapView extends View {
         Game game = JosephofEgypt.getCurrentGame();
         Map map = game.getMap();        
         Location [][] locations = map.getLocations();
+        Player player = game.getPlayer();
         
         String title = "\nThis is the Joseph of Egypt Map ";
         char rowDivider = '_';
@@ -58,6 +60,7 @@ public class GameMapView extends View {
                     System.out.print("vv");
                 else if(locations[i][j].getScene() != null)
                     System.out.print(locations[i][j].getScene().getSymbol());
+                               
                 else 
                     System.out.print("??");//needs more logic
                 

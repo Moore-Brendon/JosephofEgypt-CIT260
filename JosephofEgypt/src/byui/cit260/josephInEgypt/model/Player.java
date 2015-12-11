@@ -5,6 +5,7 @@
  */
 package byui.cit260.josephInEgypt.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -17,7 +18,7 @@ public class Player implements Serializable{
     //class intance variables
     private String name;
     private double bestHarvest;
-    private Location [][] location;
+    private Point coordinates;
 // add locations
     public Player() {
     }
@@ -40,13 +41,17 @@ public class Player implements Serializable{
         this.bestHarvest = bestHarvest;
     }
 
-    public Location[][] getLocation() {
-        return location;
+    public Point getCoordinates() {
+        return coordinates;
     }
 
-    public void setLocation(Location[][] location) {
-        this.location = location;
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
     }
+
+   
+
+   
     
     
 

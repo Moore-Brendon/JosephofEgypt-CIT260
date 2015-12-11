@@ -11,6 +11,7 @@ import byui.cit260.josephInEgypt.model.Actor;
 import byui.cit260.josephInEgypt.model.Game;
 import byui.cit260.josephInEgypt.model.Location;
 import byui.cit260.josephInEgypt.model.Map;
+import byui.cit260.josephInEgypt.model.Player;
 import byui.cit260.josephInEgypt.model.RegularScene;
 import byui.cit260.josephInEgypt.model.SceneType;
 import java.awt.Point;
@@ -20,26 +21,26 @@ import java.awt.Point;
  * @author juan
  */
 class MapControl {
-     public static   Map map;
+     
 
     static Map createMap() {
-        map = new Map(20, 20);
+        Map map = new Map(20, 20);
         RegularScene[] scenes = createScenes();
         GameControl.assignScenesToLocations(map, scenes);
         return map;
     }
-    public Map regresar(){
-        return map;
-    }
 
-
+   
+    
     static void moveActorsToStartingLocation(Map map) throws MapControlExceptions {
-        Actor[] actors = Actor.values();
+        
+         Actor[] actors = Actor.values();
         
         for (Actor actor : actors ) {
             Point coordinates = actor.getCoordinates();
             MapControl.moveActorToLocation(actor, coordinates);
             }
+           
     }
 
 
@@ -110,6 +111,24 @@ class MapControl {
             
         }
         
+        
+        
+    }
+    
+     public static void movePlayerToStartingLocation(Player player, Point coordinates) throws MapControlExceptions {
+        int x = 1;
+        int y = 1;
+        coordinates = new Point(x,y);
+        Map map = JosephofEgypt.getCurrentGame().getMap();
+        player.setCoordinates(coordinates);
+        Location[][] locations = map.getLocations();
+        locations[1][1].setVisited(true);
+        
+         
+         
+        
+         
+         
     }
     
 }

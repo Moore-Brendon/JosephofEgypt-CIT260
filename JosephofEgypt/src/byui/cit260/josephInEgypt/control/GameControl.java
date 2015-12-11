@@ -48,7 +48,7 @@ public class GameControl {
     game.setMap(map);
     Actor[] actors = new Actor[6];
     MapControl.moveActorsToStartingLocation(map);
-    
+    MapControl.movePlayerToStartingLocation(player, player.getCoordinates());
     }
 
     public static void saveGame(Game currentGame, String filePath) throws GameControlExceptions {
