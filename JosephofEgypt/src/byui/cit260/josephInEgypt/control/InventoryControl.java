@@ -32,7 +32,12 @@ public class InventoryControl {
         if (radius < 0 || radius > 15){
              throw new InventoryControlExceptions("Radius must be more than 0 and less than 15");
         }
+        if (quantity < 0 || quantity > 10000){
+             throw new InventoryControlExceptions("Quantity must be more than 0 and less than 10000");
+        }
+        //the volume is multiplied by 5 to convert volume into pounds
         double volume = (Math.PI * radius * radius * height * quantity * 5) / 1728;
+       
         
         return volume;
 
@@ -78,16 +83,16 @@ public class InventoryControl {
 public static int calcResourcesNeeded (int dailyCons, int totalDaysOfDrought, int noOfPeople) throws InventoryControlExceptions{
    
     
-    if (dailyCons <= 0 ){
-     throw new InventoryControlExceptions("Cons cannot be equal to or less than 0");
+    if (dailyCons <= 0 || dailyCons > 5 ){
+     throw new InventoryControlExceptions("Consumption cannot be equal to or less than 0 or greater than 5.");
     }
     
     //if (totalDaysOfDrought < 2555 || totalDaysOfDrought > 2556){
     //throw new InventoryControlExceptions("Days of drought must be more than 2555 and less than 2556");
     //}
     
-    if (noOfPeople > 100000){
-        throw new InventoryControlExceptions("People cannot total more than 100000.");
+    if (noOfPeople > 100000 || noOfPeople <=0){
+        throw new InventoryControlExceptions("People cannot total more than 100000 or less than or equal to zero.");
     }
     int amountResourcesNeeded = dailyCons*totalDaysOfDrought*noOfPeople;
 
