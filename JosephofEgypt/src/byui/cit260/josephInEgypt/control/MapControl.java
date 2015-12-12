@@ -108,12 +108,8 @@ class MapControl {
                                             + coordinates.x + ", " + coordinates.y
                                             + " because that location is outside "
                                             + " the bounds of the map.");
-            
-        }
-        
-        
-        
-    }
+                    }
+          }
     
      public static void movePlayerToStartingLocation(Player player, Point coordinates) throws MapControlExceptions {
         int x = 1;
@@ -123,12 +119,6 @@ class MapControl {
         player.setCoordinates(coordinates);
         Location[][] locations = map.getLocations();
         locations[1][1].setVisited(true);
-        
-         
-         
-        
-         
-         
-    }
+     }
     
 }
