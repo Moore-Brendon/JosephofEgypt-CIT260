@@ -24,7 +24,7 @@ public class InventoryControl {
         System.out.println("\n*** savePyramid stub function called ***"); 
     }
     
-    public double calcVolumeOfBarrel(double height, double radius) throws InventoryControlExceptions{
+    public static double calcVolumeOfBarrel(double height, double radius, double quantity) throws InventoryControlExceptions{
     
         if (height < 0 || height > 48){
             throw new InventoryControlExceptions("Height must be more than 0 and less than 48");
@@ -32,7 +32,7 @@ public class InventoryControl {
         if (radius < 0 || radius > 15){
              throw new InventoryControlExceptions("Radius must be more than 0 and less than 15");
         }
-        double volume = (Math.PI * radius * radius * height) / 1728;
+        double volume = (Math.PI * radius * radius * height * quantity * 5) / 1728;
         
         return volume;
 
@@ -78,16 +78,16 @@ public class InventoryControl {
 public static int calcResourcesNeeded (int dailyCons, int totalDaysOfDrought, int noOfPeople) throws InventoryControlExceptions{
    
     
-    if (dailyCons != 1 ){
-     throw new InventoryControlExceptions("Cons cannot equal 1");
+    if (dailyCons <= 0 ){
+     throw new InventoryControlExceptions("Cons cannot be equal to or less than 0");
     }
     
-    if (totalDaysOfDrought < 2555 || totalDaysOfDrought > 2556){
-     throw new InventoryControlExceptions("Days of drought must be more than 2555 and less than 2556");
-    }
+    //if (totalDaysOfDrought < 2555 || totalDaysOfDrought > 2556){
+    //throw new InventoryControlExceptions("Days of drought must be more than 2555 and less than 2556");
+    //}
     
-    if (noOfPeople != 100000){
-        throw new InventoryControlExceptions("People cannot total 100000.");
+    if (noOfPeople > 100000){
+        throw new InventoryControlExceptions("People cannot total more than 100000.");
     }
     int amountResourcesNeeded = dailyCons*totalDaysOfDrought*noOfPeople;
 

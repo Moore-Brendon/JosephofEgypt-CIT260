@@ -16,6 +16,7 @@ import byui.cit260.josephInEgypt.model.InventoryItem;
 import byui.cit260.josephInEgypt.model.Location;
 import byui.cit260.josephInEgypt.model.Map;
 import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -88,7 +89,11 @@ public class GameMenuView extends View{
                 this.constructTools();
                 break;
             case 'B':
+            {try{ 
                 this.constructBarrels();
+            } catch (InventoryControlExceptions me){
+                System.out.println(me.getMessage());}
+            }
                 break;
             case 'H':
                 this.HarvestResource();
@@ -153,21 +158,21 @@ public class GameMenuView extends View{
 
     private void calculateHarvest() throws InventoryControlExceptions {
         // display banner instructing user what to do
-        System.out.println("\nTo calculate harvest several values must be known"
-                + "\nthe daily ingest number and the number of people"
-                + "\nbe sure to know this numbers, game will require an exact amount. "
-                + "\nif you don't remember this numbers go to help menu to receive more"
-                + "\nasistance and to the city territory to explore amount of people in the city."        
+        System.out.println("\nTo calculate harvest several values must be known:"
+                + "\nThe daily consumption number and the number of people."
+                + "\nBe sure to know these numbers, as the game will require an exact amount. "
+                + "\nIf you don't remember these numbers go to the help menu to receive more"
+                + "\nassistance and to the city territory to explore the amount of people in the city."        
         );
         
         int dailyCons = this.getDailyCons();
         int noOfPeople = this.getNoOfPeople();
-        int totalDays = this.getTotalDays();
+        int totalDays = 2555;
         int totalHarvestNeeded = InventoryControl.calcResourcesNeeded(dailyCons, totalDays, noOfPeople);
         // set harvest objective
         this.saveHarvestObj();
         //display harvest objective
-        System.out.println("The game harvest objective is: " + totalHarvestNeeded);
+        System.out.println("The game harvest objective is: " + totalHarvestNeeded + " pounds of grain.");
         this.display();
     }
 
@@ -179,37 +184,31 @@ public class GameMenuView extends View{
     this.display();
     }
     
-/*
-        System.out.println( "\n"
-            + "\n----------------------------"
-            + "\n| Enter dimensions of pyramid.              |"
-            + "\n----------------------------"
-            + "\n----------------------------");
-          
-        
-        double length;
-	double width;
-	double height;
-        double volume;
-        //System.out.println(MENU);
-        length = this.getPLength();
-        width = this.getPWidth();
-        height = this.getPHeight();
-      //  volume = this.doAction(length,width,height);
-        this.savePyramid();
-        System.out.println("Pyramid saved. Volume:" + volume);
-        
-    
-    }
-*/
+
     
 
     private void constructTools() {
      //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void constructBarrels() {
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void constructBarrels()throws InventoryControlExceptions  {
+         // display banner instructing user what to do
+        System.out.println("\nEnter the dimensions and quantity for the barrels:"
+                       
+        );
+        
+        double radius = this.getBarrelRadius();
+        double height = this.getBarrelHeight();
+        double quantity = this.getBarrelQuantity();
+        
+        double totalBarrelVolume = InventoryControl.calcVolumeOfBarrel(height, radius, quantity);
+        // set harvest objective
+        this.saveBarrels();
+        //display harvest objective
+        System.out.println("The total volume of your barrels can hold : " + totalBarrelVolume + " pounds of grain.");
+        this.display();
+        
+
     }
 
     private void transportGoods() {
@@ -269,7 +268,7 @@ public class GameMenuView extends View{
         noOfPeople = keyboard.nextInt();
           
             if (noOfPeople != 100000){
-                valid = false;
+                valid = true;
                 }
         
         }
@@ -303,10 +302,10 @@ public class GameMenuView extends View{
         Scanner keyboard = new Scanner(System.in);
         
         while(!valid){
-            System.out.println("Enter daily consumprion per person: ");
+            System.out.println("Enter daily consumption per person (in pounds): ");
             dailyCons = keyboard.nextInt();
             if(dailyCons!=1){
-                valid = false;
+                valid = true;
                 }
         }
          return dailyCons;
@@ -339,4 +338,70 @@ public class GameMenuView extends View{
 
 
     }
+
+    private double getBarrelRadius() {
+        boolean valid = false;
+        int input = 0;
+        double radius = 0;
+        
+    try{    
+        while (!valid) {
+            System.out.println("Radius:");
+            input = parseInt(this.keyboard.readLine());
+            radius = (double) input;
+                
+        break;
+    }
+    }catch (IOException | NumberFormatException e){
+            System.out.println("Error reading input" + e.getMessage());
+            }
+        
+    
+        return radius;    }
+
+    private double getBarrelHeight() {
+        boolean valid = false;
+        int input = 0;
+        double height = 0;
+        
+    try{    
+        while (!valid) {
+            System.out.println("Height:");
+            input = parseInt(this.keyboard.readLine());
+            height = (double) input;
+                
+        break;
+    }
+    }catch (IOException | NumberFormatException e){
+            System.out.println("Error reading input" + e.getMessage());
+            }
+        
+    
+        return height;     }
+
+    private double getBarrelQuantity() {
+boolean valid = false;
+        int input = 0;
+        double quantity = 0;
+        
+    try{    
+        while (!valid) {
+            System.out.println("Quantity:");
+            input = parseInt(this.keyboard.readLine());
+            quantity = (double) input;
+                
+        break;
+    }
+    }catch (IOException | NumberFormatException e){
+            System.out.println("Error reading input" + e.getMessage());
+            }
+        
+    
+        return quantity;     }
+
+    private void saveBarrels() {
+//save barrels
+    }
+
+    
 }

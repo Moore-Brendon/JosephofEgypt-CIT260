@@ -27,7 +27,8 @@ public class HelpMenuView extends View {
             + "\nC - Construct items"
             + "\nH - Harvesting"
             + "\nD - Deliver Resources"
-            + "\nP - Print Inventory List"
+            + "\nA - Show Actor List" 
+            + "\nS - Show Scene List"      
             + "\nQ - Quit"
             + "\n----------------------------");
      }
@@ -57,7 +58,12 @@ public class HelpMenuView extends View {
             case 'D':
                 this.displayHowToDeliver();
                 break;
-            
+            case 'A':
+                this.displayActors();
+                return false;
+            case 'S':
+                this.displayScenes();
+                return false;
             case 'Q':
                 return true;
             default:
@@ -128,6 +134,25 @@ public class HelpMenuView extends View {
                 + "\ndisplayHowToDeliver function called");
     }
 
+    private void displayActors() {
+                System.out.println("\n"
+                + "\nPharaoh - He is the ruler and owner of all Egypt"
+                + "\nMalaky - He is the Resource officer who will help with your tools and resources."
+                + "\nBoze - He is the Harvest officer who will help you harvest your grain."
+                + "\nManassah - He is the Storage officer that will help you transport your grain to your pyramid."
+                + "\nLord - HE will help you by giving you hints when you get stuck or into trouble."
+               );    }
+
+    private void displayScenes() {
+                System.out.println("\n"
+                + "\nRegular - This is a standard scene you will enter as you move from location to location."
+                + "\nResource - This scene is where you can obtain resources such as wood or ore to make tools."
+                + "\nStorate - This scene is where your pyramid is located and you can store your grain."
+                + "\nMountain - This scene is where you can go to get hints and suggestions."
+                + "\nFinal - This scene is the end of the game where you will find out if you were sucessful in saving Egypt from famine."
+               );    }    
+    
+    
     
 }
     
