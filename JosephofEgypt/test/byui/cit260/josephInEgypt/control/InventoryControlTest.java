@@ -33,11 +33,12 @@ public class InventoryControlTest {
         // input values for test case 1
         double height = 36;
         double radius = 10;
+        double quantity = 1;
         InventoryControl instance = new InventoryControl();
         double expResult = 6.54;
         double result = 0;
         try {
-            result = instance.calcVolumeOfBarrel(height, radius);
+            result = instance.calcVolumeOfBarrel(height, radius, quantity);
         } catch (InventoryControlExceptions ex) {
             Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -54,7 +55,7 @@ public class InventoryControlTest {
         
         expResult = -1;
         try {
-            result = instance.calcVolumeOfBarrel(height, radius);
+            result = instance.calcVolumeOfBarrel(height, radius, quantity);
         } catch (InventoryControlExceptions ex) {
             Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -70,7 +71,7 @@ public class InventoryControlTest {
         
         expResult = -1;
         try {
-            result = instance.calcVolumeOfBarrel(height, radius);
+            result = instance.calcVolumeOfBarrel(height, radius, quantity);
         } catch (InventoryControlExceptions ex) {
             Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -86,7 +87,7 @@ public class InventoryControlTest {
         
         expResult = -1;
         try {
-            result = instance.calcVolumeOfBarrel(height, radius);
+            result = instance.calcVolumeOfBarrel(height, radius, quantity);
         } catch (InventoryControlExceptions ex) {
             Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -102,7 +103,7 @@ public class InventoryControlTest {
         
         expResult = -1;
         try {
-            result = instance.calcVolumeOfBarrel(height, radius);
+            result = instance.calcVolumeOfBarrel(height, radius, quantity);
         } catch (InventoryControlExceptions ex) {
             Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -119,7 +120,7 @@ public class InventoryControlTest {
         
         expResult = 0;
         try {
-            result = instance.calcVolumeOfBarrel(height, radius);
+            result = instance.calcVolumeOfBarrel(height, radius, quantity);
         } catch (InventoryControlExceptions ex) {
             Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -135,7 +136,7 @@ public class InventoryControlTest {
         
         expResult = 0;
         try {
-            result = instance.calcVolumeOfBarrel(height, radius);
+            result = instance.calcVolumeOfBarrel(height, radius, quantity);
         } catch (InventoryControlExceptions ex) {
             Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -151,7 +152,7 @@ public class InventoryControlTest {
         
         expResult = 19.63;
         try {
-            result = instance.calcVolumeOfBarrel(height, radius);
+            result = instance.calcVolumeOfBarrel(height, radius, quantity);
         } catch (InventoryControlExceptions ex) {
             Logger.getLogger(InventoryControlTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -351,7 +352,7 @@ public class InventoryControlTest {
      * Test of calcResourcesNeeded method, of class InventoryControl.
      */
     @Test
-    public void testCalcResourcesNeeded() {
+    public void testCalcResourcesNeeded() throws InventoryControlExceptions {
         
         System.out.println("calcResourcesNeeded");
         /****************************
