@@ -38,8 +38,9 @@ public class SaveGameView extends View{
       return true;
   }
     private void saveGame(String gameName) {
-       // System.out.println("\n\nEnter the file path where you would like to save.");
-      //  String filePath = this.getInput();
+       System.out.println("\n\nEnter the file path where you would like to save.");
+      String filePath = this.getInput();
+      filePath += "\\" + gameName;
         try{
             GameControl.saveGame(JosephofEgypt.getCurrentGame(), gameName);
             

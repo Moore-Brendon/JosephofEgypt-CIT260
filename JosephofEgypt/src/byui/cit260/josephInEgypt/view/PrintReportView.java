@@ -31,7 +31,7 @@ public class PrintReportView extends View{
         case "c":
             return true;
         default:
-                this.saveReport();
+                this.saveReport(value);
             break;
         
             
@@ -39,9 +39,10 @@ public class PrintReportView extends View{
       }
       return true;
   }
-    private void saveReport() {
+    private void saveReport(String rptName) {
         this.console.println("\n\nEnter the file path where you would like to save.");
         String filePath = this.getInput();
+        filePath +="\\" + rptName;
         try{
             
             InventoryItem[] inventory = GameControl.getSortedInventoryList();
