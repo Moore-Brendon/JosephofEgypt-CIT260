@@ -102,11 +102,12 @@ public class ConstructPyramidView extends View{
         width = this.getPWidth();
         height = this.getPHeight();
         
-        double volume = InventoryControl.calcDesignPyramid(length, width, height);
+        double volume = Math.round(InventoryControl.calcDesignPyramid(length, width, height));
         
         
         
-        System.out.println("The volume of the pyramid is: " + volume); 
+        System.out.println("The volume of the pyramid is: " + volume + " cubic yards.");
+        System.out.println("This pyramid will hold " + (volume * 225) + " pounds of grain.");
         
         valid =  true;
         }

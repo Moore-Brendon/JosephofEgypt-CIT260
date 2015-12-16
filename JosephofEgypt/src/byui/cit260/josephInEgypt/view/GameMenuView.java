@@ -168,7 +168,7 @@ public class GameMenuView extends View{
         int dailyCons = this.getDailyCons();
         int noOfPeople = this.getNoOfPeople();
         int totalDays = 2555;
-        int totalHarvestNeeded = InventoryControl.calcResourcesNeeded(dailyCons, totalDays, noOfPeople);
+        int totalHarvestNeeded = Math.round(InventoryControl.calcResourcesNeeded(dailyCons, totalDays, noOfPeople));
         // set harvest objective
         this.saveHarvestObj();
         //display harvest objective
