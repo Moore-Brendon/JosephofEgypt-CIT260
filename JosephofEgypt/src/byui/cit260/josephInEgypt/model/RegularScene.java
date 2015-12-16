@@ -5,6 +5,7 @@
  */
 package byui.cit260.josephInEgypt.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Objects;
  * 
  * @author User
  */
-public class RegularScene {
+public class RegularScene implements Serializable {
     
     private String description;
     private int travelTime;

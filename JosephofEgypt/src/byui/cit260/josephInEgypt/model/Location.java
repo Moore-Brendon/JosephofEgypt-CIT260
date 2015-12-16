@@ -5,6 +5,7 @@
  */
 package byui.cit260.josephInEgypt.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  * 
  * @author User
  */
-public class Location {
+public class Location implements Serializable{
     private int column;
     private int row;
     private RegularScene scene;
