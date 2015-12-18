@@ -22,7 +22,7 @@ public class InventoryControl {
     
     public static void savePyramid (double length,double width,double height) {
       Game game = JosephofEgypt.getCurrentGame();
-       Pyramid pyramid = game.getPyramid();
+      Pyramid pyramid = game.getPyramid();
         
         pyramid.setHeight(height);
         pyramid.setLength(length);

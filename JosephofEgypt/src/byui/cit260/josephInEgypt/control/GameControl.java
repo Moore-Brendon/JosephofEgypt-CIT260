@@ -65,7 +65,7 @@ public class GameControl {
    
     }
     
-    public static void saveReport(String saveReport, String filePath) throws InventoryControlExceptions, GameControlExceptions {
+    public static void saveReport(String saveReport, String filePath) throws GameControlExceptions {
         
         try( FileOutputStream fops = new FileOutputStream(filePath)){
             ObjectOutputStream output = new ObjectOutputStream(fops);
@@ -73,7 +73,6 @@ public class GameControl {
             
         }
         catch(IOException e) {
-            throw new InventoryControlExceptions(e.getMessage());
         }
    
     }
@@ -143,8 +142,8 @@ public class GameControl {
         
          InventoryItem grain = new InventoryItem();
         grain.setInventoryItem("Grain");
-        grain.setQuantityInStock(5);
-        grain.setRequiredAmount(200);
+        grain.setQuantityInStock(0);
+        grain.setRequiredAmount(500000);
         inventory[Item.grain.ordinal()] = grain;
         
          InventoryItem hammer = new InventoryItem();

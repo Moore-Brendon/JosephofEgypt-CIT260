@@ -46,6 +46,7 @@ public class GameMenuView extends View{
             + "\nV - View Game Map "
             + "\nI - Show Current Inventory  "
             + "\nR - Print Inventory Report  "
+            + "\nA - Print Actor Report"
             + "\nE - Exit "
             + "\n----------------------------");
 }
@@ -119,6 +120,8 @@ public class GameMenuView extends View{
             }
         }
                 break;
+            case 'A':
+                this.printActorReport();
             case 'E':
                 return true;
             default:
@@ -398,6 +401,11 @@ boolean valid = false;
 
     private void saveBarrels() {
 //save barrels
+    }
+
+    private void printActorReport() {
+        ActorReportView actorReport = new ActorReportView();
+        actorReport.display();
     }
 
     

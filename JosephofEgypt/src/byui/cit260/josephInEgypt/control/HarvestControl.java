@@ -12,6 +12,7 @@ package byui.cit260.josephInEgypt.control;
 public class HarvestControl {
 
     public static void saveHarvestObj() {
+        
        
     }
     
